@@ -28,7 +28,8 @@ class NewsStore: ObservableObject {
                             description: item.fields["description"] as! String,
                             thumbnail: item.fields.linkedAsset(at: "thumbnail")?.url ?? URL(string: ""),
                             content: item.fields["content"] as? String ?? "",
-                            featured: item.fields["featured"] as? Bool ?? false
+                            featured: item.fields["featured"] as? Bool ?? false,
+                            createdAt: item.sys.createdAt ?? Date.now
                         )
                     )
                 }

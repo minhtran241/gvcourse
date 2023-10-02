@@ -15,12 +15,13 @@ struct News: Identifiable, Decodable {
     var thumbnail: URL?
     var content: String
     var featured = false
+    let createdAt: Date
 }
 
 var newsList: [News] = []
 
 struct MockData {
-    static let sampleNews = News(title: "New Course!", description: "This is new course", thumbnail: URL(string: "https://media.nature.com/lw800/magazine-assets/d41586-020-03053-2/d41586-020-03053-2_18533904.jpg"), content: "This is about the new course")
+    static let sampleNews = News(title: "New Course!", description: "This is new course", thumbnail: URL(string: "https://media.nature.com/lw800/magazine-assets/d41586-020-03053-2/d41586-020-03053-2_18533904.jpg"), content: "This is about the new course", createdAt: Date.now)
     static let news: [News] = [sampleNews, sampleNews, sampleNews, sampleNews]
 }
 
