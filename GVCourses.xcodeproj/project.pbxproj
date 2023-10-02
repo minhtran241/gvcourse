@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FAF54A992ACB346000EF65F4 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF54A982ACB346000EF65F4 /* NavigationBar.swift */; };
 		FAF61B252ACA564000357D1E /* CourseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF61B242ACA564000357D1E /* CourseStore.swift */; };
 		FAF61B292ACA5C8200357D1E /* Queries.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF61B282ACA5C8200357D1E /* Queries.swift */; };
 		FAF6F0DE2ACA104400F0F017 /* GVCoursesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF6F0DD2ACA104400F0F017 /* GVCoursesApp.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FAF54A982ACB346000EF65F4 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		FAF61B242ACA564000357D1E /* CourseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseStore.swift; sourceTree = "<group>"; };
 		FAF61B282ACA5C8200357D1E /* Queries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queries.swift; sourceTree = "<group>"; };
 		FAF61B302ACA602000357D1E /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				FAF6F0DF2ACA104400F0F017 /* GVCoursesTabView.swift */,
+				FAF54A982ACB346000EF65F4 /* NavigationBar.swift */,
 			);
 			path = navigation;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				FAF6F11A2ACA2A2F00F0F017 /* NewsCardView.swift in Sources */,
 				FAF6F0DE2ACA104400F0F017 /* GVCoursesApp.swift in Sources */,
 				FAF6F10A2ACA10C600F0F017 /* CoursesListView.swift in Sources */,
+				FAF54A992ACB346000EF65F4 /* NavigationBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

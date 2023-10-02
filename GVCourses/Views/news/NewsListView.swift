@@ -8,19 +8,32 @@
 import SwiftUI
 
 struct NewsListView: View {
+    
     @EnvironmentObject var store: NewsStore
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 ForEach(store.newsList) {post in
-                    NavigationLink(destination: NewsDetailsView(news: post)) {
+                    ZStack(alignment:.leading) {
+                        NavigationLink(destination: NewsDetailsView(news: post)) {
+                            EmptyView()
+                        }.opacity(0)
                         NewsCardView(news: post)
+                    }.listRowSeparator(.hidden)
+                }
+            }.padding(.top, 10)
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        VStack {
+                            Text("Hi Student!").font(.headline)
+                            Text("Latest course news").font(.subheadline)
+                        }
                     }
                 }
-            }
-            .navigationTitle("Explore new courses!")
-            .listStyle(InsetListStyle())
+                .navigationBarBackground()
+                .listStyle(InsetListStyle())
         }
         .onAppear(perform: {store.refreshView()})
     }

@@ -19,11 +19,11 @@ struct NewsCardView: View {
             WebImage(url: news.thumbnail)
                 .resizable()
                 .scaleEffect(2.5)
-                .blur (radius: 40)
-                .cornerRadius (14)
-                .frame(maxWidth: (screenWidth - 20))
-                .frame (maxHeight: 250)
-                .opacity (0.7)
+                .blur(radius: 40)
+                .cornerRadius(5)
+                .frame(maxWidth: (screenWidth - 10))
+                .frame(maxHeight: 250)
+                .opacity(0.7)
             VStack {
                 HStack {
                     VStack(alignment: .leading) {
@@ -59,11 +59,11 @@ struct NewsCardView: View {
                         .scaledToFill()
                         .frame(maxWidth: (screenWidth - 30))
                         .frame(height: 150)
-                        .cornerRadius(14)
+                        .cornerRadius(5)
                         .shadow(radius: 12)
                 }
                 Spacer()
-            }.padding (.bottom, 15)
+            }.padding(.bottom, 15)
         }
     }
 }

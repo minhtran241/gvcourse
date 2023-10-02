@@ -11,14 +11,14 @@ class NewsStore: ObservableObject {
     
     @Published var newsList: [News] = []
     
-    init() {
-        DispatchQueue.main.async {
-            self.refreshView()
-        }
-    }
+//    init() {
+//        DispatchQueue.main.async {
+//            self.refreshView()
+//        }
+//    }
     
     func refreshView(){
-        self.newsList = []
+        self.newsList.removeAll()
         DispatchQueue.main.async {
             getAll(id: "news") {items in
                 items.forEach {(item) in
