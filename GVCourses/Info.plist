@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key></key>
+	<string></string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict/>
+	</array>
+	<key>CONTENTFUL_ACCESS_TOKEN</key>
+	<string>$(CONTENTFUL_ACCESS_TOKEN)</string>
+	<key>CONTENTFUL_ENVIRONMENT_ID</key>
+	<string>$(CONTENTFUL_ENVIRONMENT_ID)</string>
+	<key>CONTENTFUL_SPACE_ID</key>
+	<string>$(CONTENTFUL_SPACE_ID)</string>
+</dict>
+</plist>
