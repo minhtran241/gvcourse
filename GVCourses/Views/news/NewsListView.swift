@@ -18,21 +18,16 @@ struct NewsListView: View {
                     ZStack(alignment:.leading) {
                         NavigationLink(destination: NewsDetailsView(news: post)) {
                             EmptyView()
-                        }.opacity(0)
+                        }
+                        .opacity(0)
                         NewsCardView(news: post)
                     }.listRowSeparator(.hidden)
                 }
             }.padding(.top, 10)
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .principal) {
-                        VStack {
-                            Text("Hi Student!").font(.headline)
-                            Text("Latest course news").font(.subheadline)
-                        }
-                    }
-                }
-                .navigationBarBackground()
+                .gvcoursesNavigationBar(
+                    title: "Hi Student!",
+                    subtitle: "Latest course news"
+                )
                 .listStyle(InsetListStyle())
         }
         .onAppear(perform: {store.refreshView()})

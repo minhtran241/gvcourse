@@ -20,7 +20,7 @@ struct NewsCardView: View {
                 .resizable()
                 .scaleEffect(2.5)
                 .blur(radius: 40)
-                .cornerRadius(5)
+                .cornerRadius(10)
                 .frame(maxWidth: (screenWidth - 10))
                 .frame(maxHeight: 250)
                 .opacity(0.7)

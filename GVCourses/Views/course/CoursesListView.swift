@@ -9,15 +9,13 @@ import SwiftUI
 
 struct DetailedRow: View {
     let title: String
-    var detail: String? = nil
+    var detail: String
     
     var body: some View {
         HStack() {
-            Text(title)
-            if detail?.isEmpty == false {
-                Spacer()
-                Text(detail!).foregroundColor(Color(.gray))
-            }
+            Text(title).foregroundStyle(Color("brandPrimary"))
+            Spacer()
+            Text(detail).foregroundStyle(Color(.gray))
         }
     }
 }
@@ -32,8 +30,11 @@ struct CoursesListView: View {
                 ForEach(store.courseList) {c in
                     DetailedRow(title: c.name, detail: c.title)
                 }
-            }
-            .navigationTitle("Our courses")
+            }.padding(.top, 10)
+            .gvcoursesNavigationBar(
+                title: "Hi Student!",
+                subtitle: "Latest course news"
+            )
             .listStyle(InsetListStyle())
         }
         .onAppear(perform: {store.refreshView()})

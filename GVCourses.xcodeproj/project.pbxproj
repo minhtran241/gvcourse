@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FAF54A992ACB346000EF65F4 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF54A982ACB346000EF65F4 /* NavigationBar.swift */; };
+		FA3411A62ACBC45A00627A3D /* ContentfulCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3411A52ACBC45A00627A3D /* ContentfulCredentials.swift */; };
+		FA3411AF2ACC9B6D00627A3D /* ContentfulClientProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3411AE2ACC9B6D00627A3D /* ContentfulClientProvider.swift */; };
+		FAF54A992ACB346000EF65F4 /* GVCoursesNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF54A982ACB346000EF65F4 /* GVCoursesNavigationBar.swift */; };
 		FAF61B252ACA564000357D1E /* CourseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF61B242ACA564000357D1E /* CourseStore.swift */; };
 		FAF61B292ACA5C8200357D1E /* Queries.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF61B282ACA5C8200357D1E /* Queries.swift */; };
 		FAF6F0DE2ACA104400F0F017 /* GVCoursesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF6F0DD2ACA104400F0F017 /* GVCoursesApp.swift */; };
@@ -46,7 +48,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FAF54A982ACB346000EF65F4 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		FA3411A52ACBC45A00627A3D /* ContentfulCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentfulCredentials.swift; sourceTree = "<group>"; };
+		FA3411AE2ACC9B6D00627A3D /* ContentfulClientProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentfulClientProvider.swift; sourceTree = "<group>"; };
+		FAF54A982ACB346000EF65F4 /* GVCoursesNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GVCoursesNavigationBar.swift; sourceTree = "<group>"; };
 		FAF61B242ACA564000357D1E /* CourseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseStore.swift; sourceTree = "<group>"; };
 		FAF61B282ACA5C8200357D1E /* Queries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queries.swift; sourceTree = "<group>"; };
 		FAF61B302ACA602000357D1E /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
@@ -97,6 +101,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA3411A42ACBC42E00627A3D /* Contentful */ = {
+			isa = PBXGroup;
+			children = (
+				FA3411A52ACBC45A00627A3D /* ContentfulCredentials.swift */,
+				FA3411AE2ACC9B6D00627A3D /* ContentfulClientProvider.swift */,
+			);
+			path = Contentful;
+			sourceTree = "<group>";
+		};
 		FAF61B1F2ACA4ABB00357D1E /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,7 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				FAF6F0DF2ACA104400F0F017 /* GVCoursesTabView.swift */,
-				FAF54A982ACB346000EF65F4 /* NavigationBar.swift */,
+				FAF54A982ACB346000EF65F4 /* GVCoursesNavigationBar.swift */,
 			);
 			path = navigation;
 			sourceTree = "<group>";
@@ -184,6 +197,7 @@
 		FAF6F0DC2ACA104400F0F017 /* GVCourses */ = {
 			isa = PBXGroup;
 			children = (
+				FA3411A42ACBC42E00627A3D /* Contentful */,
 				FAF61B312ACA607C00357D1E /* Info.plist */,
 				FAF61B2E2ACA5E2400357D1E /* Configs */,
 				FAF61B2A2ACA5CD000357D1E /* Views */,
@@ -360,17 +374,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAF6F10E2ACA204100F0F017 /* News.swift in Sources */,
+				FA3411AF2ACC9B6D00627A3D /* ContentfulClientProvider.swift in Sources */,
 				FAF6F0E02ACA104400F0F017 /* GVCoursesTabView.swift in Sources */,
 				FAF61B292ACA5C8200357D1E /* Queries.swift in Sources */,
 				FAF6F1082ACA10A600F0F017 /* NewsListView.swift in Sources */,
 				FAF6F11C2ACA2E0400F0F017 /* NewsDetailsView.swift in Sources */,
+				FA3411A62ACBC45A00627A3D /* ContentfulCredentials.swift in Sources */,
 				FAF61B252ACA564000357D1E /* CourseStore.swift in Sources */,
 				FAF6F1182ACA271900F0F017 /* NewsStore.swift in Sources */,
 				FAF6F10C2ACA169E00F0F017 /* Course.swift in Sources */,
 				FAF6F11A2ACA2A2F00F0F017 /* NewsCardView.swift in Sources */,
 				FAF6F0DE2ACA104400F0F017 /* GVCoursesApp.swift in Sources */,
 				FAF6F10A2ACA10C600F0F017 /* CoursesListView.swift in Sources */,
-				FAF54A992ACB346000EF65F4 /* NavigationBar.swift in Sources */,
+				FAF54A992ACB346000EF65F4 /* GVCoursesNavigationBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
