@@ -27,14 +27,18 @@ struct GVCoursesTabView: View {
                         Button{
                             selectedTab = item.rawValue
                         } label: {
-                            CustomTabItem(imageName: item.iconName, title: item.title, isActive: (selectedTab == item.rawValue))
+                            CustomTabItem(
+                                imageName: item.iconName,
+                                title: item.title,
+                                isActive: (selectedTab == item.rawValue)
+                            )
                         }
                     }
                 }
                 .padding(6)
             }
             .frame(height: 70)
-            .background(Color("brandSecondary"))
+            .background(Color("brandSecondary").opacity(0.5))
             .cornerRadius(10)
             .padding(.horizontal, 26)
         }
@@ -73,7 +77,7 @@ extension GVCoursesTabView {
                 .renderingMode(.template)
                 .foregroundColor(.white)
                 .frame(width: 20, height: 20)
-            if isActive{
+            if isActive {
                 Text(title)
                     .font(.system(size: 14))
                     .foregroundColor(.white)
@@ -81,7 +85,7 @@ extension GVCoursesTabView {
             Spacer()
         }
         .frame(width: isActive ? nil : 60, height: 60)
-        .background(isActive ? Color("brandPrimary2") : .clear)
+        .background(isActive ? Color("brandPrimary2").opacity(0.7) : .clear)
         .cornerRadius(5)
     }
 }

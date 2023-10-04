@@ -7,15 +7,19 @@
 
 import SwiftUI
 
-struct DetailedRow: View {
+struct CourseRow: View {
+    let name: String
+    let credits: Int
     let title: String
-    var detail: String
     
     var body: some View {
-        HStack() {
-            Text(title).foregroundStyle(Color("brandPrimary"))
+        HStack {
+            VStack(alignment: .leading) {
+                Text(name).foregroundStyle(.black)
+                Text("\(credits) credits").font(.subheadline).foregroundStyle(.gray)
+            }
             Spacer()
-            Text(detail).foregroundStyle(Color(.gray))
+            Text(title).foregroundStyle(.gray)
         }
     }
 }
@@ -28,9 +32,9 @@ struct CoursesListView: View {
         NavigationView {
             List {
                 ForEach(store.courseList) {c in
-                    DetailedRow(title: c.name, detail: c.title)
+                    CourseRow(name: c.name, credits: c.credits, title: c.title)
                 }
-            }.padding(.top, 10)
+            }
             .gvcoursesNavigationBar(
                 title: "Hi Student!",
                 subtitle: "Latest course news"
