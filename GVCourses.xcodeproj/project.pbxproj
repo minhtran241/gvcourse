@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FA3411A62ACBC45A00627A3D /* ContentfulCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3411A52ACBC45A00627A3D /* ContentfulCredentials.swift */; };
 		FA3411AF2ACC9B6D00627A3D /* ContentfulClientProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3411AE2ACC9B6D00627A3D /* ContentfulClientProvider.swift */; };
+		FA80AEA92ACDAB920026CA9E /* GVCoursesSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80AEA82ACDAB920026CA9E /* GVCoursesSearchBar.swift */; };
 		FAF54A992ACB346000EF65F4 /* GVCoursesNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF54A982ACB346000EF65F4 /* GVCoursesNavigationBar.swift */; };
 		FAF61B252ACA564000357D1E /* CourseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF61B242ACA564000357D1E /* CourseStore.swift */; };
 		FAF61B292ACA5C8200357D1E /* Queries.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF61B282ACA5C8200357D1E /* Queries.swift */; };
@@ -50,6 +51,7 @@
 /* Begin PBXFileReference section */
 		FA3411A52ACBC45A00627A3D /* ContentfulCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentfulCredentials.swift; sourceTree = "<group>"; };
 		FA3411AE2ACC9B6D00627A3D /* ContentfulClientProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentfulClientProvider.swift; sourceTree = "<group>"; };
+		FA80AEA82ACDAB920026CA9E /* GVCoursesSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GVCoursesSearchBar.swift; sourceTree = "<group>"; };
 		FAF54A982ACB346000EF65F4 /* GVCoursesNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GVCoursesNavigationBar.swift; sourceTree = "<group>"; };
 		FAF61B242ACA564000357D1E /* CourseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseStore.swift; sourceTree = "<group>"; };
 		FAF61B282ACA5C8200357D1E /* Queries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queries.swift; sourceTree = "<group>"; };
@@ -110,6 +112,14 @@
 			path = Contentful;
 			sourceTree = "<group>";
 		};
+		FA80AEA72ACDAB7A0026CA9E /* search */ = {
+			isa = PBXGroup;
+			children = (
+				FA80AEA82ACDAB920026CA9E /* GVCoursesSearchBar.swift */,
+			);
+			path = search;
+			sourceTree = "<group>";
+		};
 		FAF61B1F2ACA4ABB00357D1E /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +142,7 @@
 		FAF61B2A2ACA5CD000357D1E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FA80AEA72ACDAB7A0026CA9E /* search */,
 				FAF61B2D2ACA5D2700357D1E /* navigation */,
 				FAF61B2C2ACA5CFE00357D1E /* course */,
 				FAF61B2B2ACA5CDF00357D1E /* news */,
@@ -374,6 +385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAF6F10E2ACA204100F0F017 /* News.swift in Sources */,
+				FA80AEA92ACDAB920026CA9E /* GVCoursesSearchBar.swift in Sources */,
 				FA3411AF2ACC9B6D00627A3D /* ContentfulClientProvider.swift in Sources */,
 				FAF6F0E02ACA104400F0F017 /* GVCoursesTabView.swift in Sources */,
 				FAF61B292ACA5C8200357D1E /* Queries.swift in Sources */,

@@ -10,10 +10,18 @@ import SwiftUI
 class CourseStore: ObservableObject {
     
     @Published var courseList: [Course] = []
+    @Published var searchText: String = ""
     
     init() {
         DispatchQueue.main.async {
             self.refreshView()
+        }
+    }
+    
+    var filteredCourses: [Course] {
+        guard !searchText.isEmpty else { return courseList }
+        return courseList.filter { c in
+            c.name.lowercased().contains(searchText.lowercased())
         }
     }
     

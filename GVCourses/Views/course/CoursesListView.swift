@@ -29,9 +29,11 @@ struct CoursesListView: View {
     @EnvironmentObject var store: CourseStore
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
+            SearchBar(text: $store.searchText)
+                .padding(.top, 20)
             List {
-                ForEach(store.courseList) {c in
+                ForEach(store.filteredCourses) {c in
                     CourseRow(name: c.name, credits: c.credits, title: c.title)
                 }
             }
@@ -39,7 +41,8 @@ struct CoursesListView: View {
                 title: "Hi Student!",
                 subtitle: "Latest course news"
             )
-            .listStyle(InsetListStyle())
+            .listStyle(.plain)
+            
         }
         .onAppear(perform: {store.refreshView()})
     }
