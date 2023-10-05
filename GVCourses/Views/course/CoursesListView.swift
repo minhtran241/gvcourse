@@ -7,41 +7,40 @@
 
 import SwiftUI
 
-struct CourseRow: View {
-    let name: String
-    let credits: Int
-    let title: String
-    
-    var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text(name).foregroundStyle(.black)
-                Text("\(credits) credits").font(.subheadline).foregroundStyle(.gray)
-            }
-            Spacer()
-            Text(title).foregroundStyle(.gray)
-        }
-    }
-}
-
 struct CoursesListView: View {
     
     @EnvironmentObject var store: CourseStore
+    @Environment(\.searchSuggestionsPlacement) var placement
     
     var body: some View {
         NavigationStack {
-            SearchBar(text: $store.searchText)
+            GVCoursesSearchBar(text: $store.searchText)
                 .padding(.top, 20)
+            if placement == .content {
+                ForEach(store.filteredSuggestions, id: \.self) { suggestion in
+                    Button {
+                        store.searchText = suggestion
+                    } label: {
+                        Label(suggestion, systemImage: "bookmark")
+                    }
+                }
+            }
             List {
                 ForEach(store.filteredCourses) {c in
-                    CourseRow(name: c.name, credits: c.credits, title: c.title)
+                    ZStack(alignment:.leading) {
+                        NavigationLink(destination: CourseDetailsView(course: c)) {
+                            EmptyView()
+                        }
+                        .opacity(0)
+                        CourseRowView(name: c.name, credits: c.credits, title: c.title)
+                    }
                 }
             }
             .gvcoursesNavigationBar(
                 title: "Hi Student!",
                 subtitle: "Latest course news"
             )
-            .listStyle(.plain)
+            .listStyle(.automatic)
             
         }
         .onAppear(perform: {store.refreshView()})

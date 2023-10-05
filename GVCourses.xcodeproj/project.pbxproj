@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA30FF962ACE58E100017DE3 /* CourseRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA30FF952ACE58E100017DE3 /* CourseRowView.swift */; };
+		FA30FF982ACE596F00017DE3 /* CourseDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA30FF972ACE596F00017DE3 /* CourseDetailsView.swift */; };
+		FA30FF9B2ACED3B000017DE3 /* RichText in Frameworks */ = {isa = PBXBuildFile; productRef = FA30FF9A2ACED3B000017DE3 /* RichText */; };
+		FA30FF9E2ACED93E00017DE3 /* ContentfulRichTextRenderer in Frameworks */ = {isa = PBXBuildFile; productRef = FA30FF9D2ACED93E00017DE3 /* ContentfulRichTextRenderer */; };
+		FA30FFA02ACEDBBF00017DE3 /* SwiftUIRichTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA30FF9F2ACEDBBF00017DE3 /* SwiftUIRichTextView.swift */; };
 		FA3411A62ACBC45A00627A3D /* ContentfulCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3411A52ACBC45A00627A3D /* ContentfulCredentials.swift */; };
 		FA3411AF2ACC9B6D00627A3D /* ContentfulClientProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3411AE2ACC9B6D00627A3D /* ContentfulClientProvider.swift */; };
 		FA80AEA92ACDAB920026CA9E /* GVCoursesSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80AEA82ACDAB920026CA9E /* GVCoursesSearchBar.swift */; };
@@ -49,6 +54,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA30FF952ACE58E100017DE3 /* CourseRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseRowView.swift; sourceTree = "<group>"; };
+		FA30FF972ACE596F00017DE3 /* CourseDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailsView.swift; sourceTree = "<group>"; };
+		FA30FF9F2ACEDBBF00017DE3 /* SwiftUIRichTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIRichTextView.swift; sourceTree = "<group>"; };
 		FA3411A52ACBC45A00627A3D /* ContentfulCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentfulCredentials.swift; sourceTree = "<group>"; };
 		FA3411AE2ACC9B6D00627A3D /* ContentfulClientProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentfulClientProvider.swift; sourceTree = "<group>"; };
 		FA80AEA82ACDAB920026CA9E /* GVCoursesSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GVCoursesSearchBar.swift; sourceTree = "<group>"; };
@@ -82,6 +90,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAF6F1162ACA25B200F0F017 /* SDWebImageSwiftUI in Frameworks */,
+				FA30FF9B2ACED3B000017DE3 /* RichText in Frameworks */,
+				FA30FF9E2ACED93E00017DE3 /* ContentfulRichTextRenderer in Frameworks */,
 				FAF6F1132ACA258B00F0F017 /* Contentful in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,6 +152,7 @@
 		FAF61B2A2ACA5CD000357D1E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FA30FF9F2ACEDBBF00017DE3 /* SwiftUIRichTextView.swift */,
 				FA80AEA72ACDAB7A0026CA9E /* search */,
 				FAF61B2D2ACA5D2700357D1E /* navigation */,
 				FAF61B2C2ACA5CFE00357D1E /* course */,
@@ -164,6 +175,8 @@
 			isa = PBXGroup;
 			children = (
 				FAF6F1092ACA10C600F0F017 /* CoursesListView.swift */,
+				FA30FF952ACE58E100017DE3 /* CourseRowView.swift */,
+				FA30FF972ACE596F00017DE3 /* CourseDetailsView.swift */,
 			);
 			path = course;
 			sourceTree = "<group>";
@@ -265,6 +278,8 @@
 			packageProductDependencies = (
 				FAF6F1122ACA258B00F0F017 /* Contentful */,
 				FAF6F1152ACA25B200F0F017 /* SDWebImageSwiftUI */,
+				FA30FF9A2ACED3B000017DE3 /* RichText */,
+				FA30FF9D2ACED93E00017DE3 /* ContentfulRichTextRenderer */,
 			);
 			productName = GVCourses;
 			productReference = FAF6F0DA2ACA104400F0F017 /* GVCourses.app */;
@@ -341,6 +356,8 @@
 			packageReferences = (
 				FAF6F1112ACA258B00F0F017 /* XCRemoteSwiftPackageReference "contentful" */,
 				FAF6F1142ACA25B200F0F017 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				FA30FF992ACED3B000017DE3 /* XCRemoteSwiftPackageReference "RichText" */,
+				FA30FF9C2ACED93E00017DE3 /* XCRemoteSwiftPackageReference "rich-text-renderer" */,
 			);
 			productRefGroup = FAF6F0DB2ACA104400F0F017 /* Products */;
 			projectDirPath = "";
@@ -384,11 +401,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA30FF982ACE596F00017DE3 /* CourseDetailsView.swift in Sources */,
 				FAF6F10E2ACA204100F0F017 /* News.swift in Sources */,
 				FA80AEA92ACDAB920026CA9E /* GVCoursesSearchBar.swift in Sources */,
+				FA30FF962ACE58E100017DE3 /* CourseRowView.swift in Sources */,
 				FA3411AF2ACC9B6D00627A3D /* ContentfulClientProvider.swift in Sources */,
 				FAF6F0E02ACA104400F0F017 /* GVCoursesTabView.swift in Sources */,
 				FAF61B292ACA5C8200357D1E /* Queries.swift in Sources */,
+				FA30FFA02ACEDBBF00017DE3 /* SwiftUIRichTextView.swift in Sources */,
 				FAF6F1082ACA10A600F0F017 /* NewsListView.swift in Sources */,
 				FAF6F11C2ACA2E0400F0F017 /* NewsDetailsView.swift in Sources */,
 				FA3411A62ACBC45A00627A3D /* ContentfulCredentials.swift in Sources */,
@@ -735,6 +755,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		FA30FF992ACED3B000017DE3 /* XCRemoteSwiftPackageReference "RichText" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/NuPlay/RichText.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.0;
+			};
+		};
+		FA30FF9C2ACED93E00017DE3 /* XCRemoteSwiftPackageReference "rich-text-renderer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/contentful/rich-text-renderer.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.1;
+			};
+		};
 		FAF6F1112ACA258B00F0F017 /* XCRemoteSwiftPackageReference "contentful" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/contentful/contentful.swift";
@@ -754,6 +790,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		FA30FF9A2ACED3B000017DE3 /* RichText */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA30FF992ACED3B000017DE3 /* XCRemoteSwiftPackageReference "RichText" */;
+			productName = RichText;
+		};
+		FA30FF9D2ACED93E00017DE3 /* ContentfulRichTextRenderer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA30FF9C2ACED93E00017DE3 /* XCRemoteSwiftPackageReference "rich-text-renderer" */;
+			productName = ContentfulRichTextRenderer;
+		};
 		FAF6F1122ACA258B00F0F017 /* Contentful */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FAF6F1112ACA258B00F0F017 /* XCRemoteSwiftPackageReference "contentful" */;

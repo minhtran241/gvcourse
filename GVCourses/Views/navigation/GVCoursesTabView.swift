@@ -41,7 +41,7 @@ struct GVCoursesTabView: View {
             .background(Color("brandSecondary").opacity(0.5))
             .cornerRadius(10)
             .padding(.horizontal, 26)
-        }
+        }.ignoresSafeArea(.keyboard, edges: .bottom)
     }
 }
 
@@ -61,7 +61,7 @@ enum TabbedItems: Int, CaseIterable{
     var iconName: String{
         switch self {
         case .home:
-            return "house"
+            return "house.fill"
         case .courses:
             return "book.fill"
         }
@@ -85,7 +85,7 @@ extension GVCoursesTabView {
             Spacer()
         }
         .frame(width: isActive ? nil : 60, height: 60)
-        .background(isActive ? Color("brandPrimary2").opacity(0.7) : .clear)
+        .background(isActive ? Color("brandPrimary").opacity(0.7) : .clear)
         .cornerRadius(5)
     }
 }

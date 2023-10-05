@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SearchBar: View {
+struct GVCoursesSearchBar: View {
     @Binding var text: String
 
     @State private var isEditing = false
@@ -55,7 +55,7 @@ struct SearchBar: View {
                 }
                 .padding(.trailing, 10)
                 .transition(.move(edge: .trailing))
-                .animation(.default)
+                .animation(.default, value: 0.0)
             }
         }
     }
@@ -63,6 +63,6 @@ struct SearchBar: View {
 
 struct SearchBar_Previews: PreviewProvider {
     static var previews: some View {
-        SearchBar(text: .constant(""))
+        GVCoursesSearchBar(text: .constant(""))
     }
 }

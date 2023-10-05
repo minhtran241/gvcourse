@@ -10,7 +10,7 @@ import SwiftUI
 extension View {
     
     func gvcoursesNavigationBar(
-        background: Color = Color("brandPrimary2"),
+        background: Color = Color("brandPrimary"),
         foreground: Color = Color(.white),
         title: String = "GVCourses",
         subtitle: String = ""

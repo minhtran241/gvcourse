@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Contentful
 
 struct Course: Identifiable {
     let id = UUID()
@@ -19,6 +20,8 @@ struct Course: Identifiable {
     let level: String
     let transitionPlanURL: String?
     let prerequisite: String?
+    let prerequisiteString: String?
+    let test: RichTextDocument
 //    let createdAt: Date
 }
 
