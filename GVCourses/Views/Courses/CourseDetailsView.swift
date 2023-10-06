@@ -7,27 +7,10 @@
 
 import SwiftUI
 import Contentful
-import RichTextRenderer
 
 struct CourseDetailsView: View {
     
     var course: Course
-    @State var richTextDocument: RichTextDocument?
-    
-    private var richTextViewController: RichTextViewController {
-        var configuration = DefaultRendererConfiguration()
-        //            configuration.resourceLinkBlockViewProvider = ExampleBlockViewProvider()
-        //            configuration.resourceLinkInlineStringProvider = ExampleInlineStringProvider()
-        
-        let renderersProvider = DefaultRenderersProvider()
-        
-        let renderer = RichTextDocumentRenderer(
-            configuration: configuration,
-            nodeRenderers: renderersProvider
-        )
-        
-        return RichTextViewController(renderer: renderer)
-    }
     
     var body: some View {
         ZStack {
@@ -46,11 +29,11 @@ struct CourseDetailsView: View {
                         .frame(maxWidth: .infinity)
                         
                         HStack {
-                            Text(course.description)
+                            Text(try! (AttributedString(markdown: course.description)))
                                 .multilineTextAlignment(.leading)
                                 .font(.body)
                                 .foregroundColor(Color.primary.opacity(0.9))
-                                .padding(.bottom, 15)
+                                .padding(.bottom, 5)
                             Spacer()
                         }.frame(maxWidth: .infinity)
                         
@@ -59,7 +42,7 @@ struct CourseDetailsView: View {
                                 .multilineTextAlignment(.leading)
                                 .font(.body)
                                 .foregroundColor(Color.primary.opacity(0.9))
-                                .padding(.bottom, 15)
+                                .padding(.bottom, 2)
                             Spacer()
                         }.frame(maxWidth: .infinity)
                         
@@ -68,39 +51,44 @@ struct CourseDetailsView: View {
                                 .multilineTextAlignment(.leading)
                                 .font(.body)
                                 .foregroundColor(Color.primary.opacity(0.9))
-                                .padding(.bottom, 15)
+                                .padding(.bottom, 2)
                             Spacer()
                         }.frame(maxWidth: .infinity)
                         
-                        HStack {
-                            Text("Test: ")
-                            SwiftUIRichTextView(
-                                richTextViewController: richTextViewController,
-                                richTextDocument: course.test
-                            )
-                            .multilineTextAlignment(.leading)
-                            .font(.body)
-                            .foregroundColor(Color.primary.opacity(0.9))
-                            .padding(.bottom, 15)
-                            Spacer()
-                        }
-                        .frame(maxWidth: .infinity)
-                        
-                        
-                        if let p = course.prerequisiteString {
+                        if (course.prerequisiteString ?? "").isEmpty == false {
                             HStack {
-                                Text("Prerequisite: \(p)")
+                                Text(try! "Prerequisite: \(AttributedString(markdown: course.prerequisiteString!))")
                                     .multilineTextAlignment(.leading)
                                     .font(.body)
                                     .foregroundColor(Color.primary.opacity(0.9))
-                                    .padding(.bottom, 25)
+                                    .padding(.bottom, 2)
                                 Spacer()
                             }.frame(maxWidth: .infinity)
                         }
                         
+                        if (course.rubricsUrl ?? "").isEmpty == false {
+                            HStack {
+                                Text(try! "Rubrics: \(AttributedString(markdown: "[\(course.name) Rubric](\(course.rubricsUrl!))"))")
+                                    .multilineTextAlignment(.leading)
+                                    .font(.body)
+                                    .foregroundColor(Color.primary.opacity(0.9))
+                                    .padding(.bottom, 2)
+                                Spacer()
+                            }.frame(maxWidth: .infinity)
+                        }
+                        
+                        if (course.transitionPlanUrl ?? "").isEmpty == false {
+                            HStack {
+                                Text(try! "Transition plan: \(AttributedString(markdown: "[\(course.name) Transition Plan](\(course.transitionPlanUrl!))"))")
+                                    .multilineTextAlignment(.leading)
+                                    .font(.body)
+                                    .foregroundColor(Color.primary.opacity(0.9))
+                                    .padding(.bottom, 2)
+                                Spacer()
+                            }.frame(maxWidth: .infinity)
+                        }
                     }
                     .padding(.horizontal, 20)
-                    
                     Spacer()
                 }
                 .frame(maxWidth: .infinity)

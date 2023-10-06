@@ -16,12 +16,11 @@ struct Course: Identifiable {
     let title: String
     let description: String
     let credits: Int
-    let rubricsURL: String?
+    let rubricsUrl: String?
     let level: String
-    let transitionPlanURL: String?
+    let transitionPlanUrl: String?
     let prerequisite: String?
     let prerequisiteString: String?
-    let test: RichTextDocument
 //    let createdAt: Date
 }
 

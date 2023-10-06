@@ -35,7 +35,7 @@ struct NewsDetailsView: View {
                         }
                         .frame(maxWidth: .infinity)
                         
-                        Text(news.content)
+                        Text(try! AttributedString(markdown: news.content))
                             .multilineTextAlignment(.leading)
                             .font(.body)
                             .foregroundColor(Color.primary.opacity(0.9))

@@ -47,29 +47,14 @@ class CourseStore: ObservableObject {
                             title: item.fields["title"] as! String,
                             description: item.fields["description"] as! String,
                             credits: item.fields["credits"] as! Int,
-                            rubricsURL: item.fields["rubricsURL"] as? String ?? "",
+                            rubricsUrl: item.fields["rubricsUrl"] as? String ?? "",
                             level: item.fields["level"] as! String,
-                            transitionPlanURL: item.fields["transitionPlanURL"] as? String ?? "",
+                            transitionPlanUrl: item.fields["transitionPlanUrl"] as? String ?? "",
                             prerequisite: item.fields["prerequisite"] as? String ?? "",
-                            prerequisiteString: item.fields["prerequisiteString"] as? String ?? "",
-                            test: item.fields["test"] as! RichTextDocument
-                        )
+                            prerequisiteString: item.fields["prerequisiteString"] as? String ?? ""                        )
                     )
                 }
             }
         }
     }
-}
-
-extension String {
-  /*
-   Truncates the string to the specified length number of characters and appends an optional trailing string if longer.
-   - Parameter length: Desired maximum lengths of a string
-   - Parameter trailing: A 'String' that will be appended after the truncation.
-    
-   - Returns: 'String' object.
-  */
-  func trunc(length: Int, trailing: String = "…") -> String {
-    return (self.count > length) ? self.prefix(length) + trailing : self
-  }
 }
