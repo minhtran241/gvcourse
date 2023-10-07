@@ -21,7 +21,23 @@ struct Course: Identifiable {
     let transitionPlanUrl: String?
     let prerequisite: String?
     let prerequisiteString: String?
-//    let createdAt: Date
+    let createdAt: Date
+    
+    init(number: Int, subject: String, name: String, title: String, description: String, credits: Int, rubricsUrl: String?, level: String, transitionPlanUrl: String?, prerequisite: String?, prerequisiteString: String?, createdAt: Date) {
+        self.number = number
+        self.subject = subject.uppercased()
+        self.name = name
+        self.title = title
+        self.description = description
+        self.credits = credits
+        self.rubricsUrl = rubricsUrl
+        self.level = level.capitalized
+        self.transitionPlanUrl = transitionPlanUrl
+        self.prerequisite = prerequisite
+        self.prerequisiteString = prerequisiteString
+        self.createdAt = createdAt
+    }
+
 }
 
 struct CourseResponse {

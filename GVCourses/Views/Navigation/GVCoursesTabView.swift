@@ -37,7 +37,7 @@ struct GVCoursesTabView: View {
                 }
                 .padding(6)
             }
-            .frame(height: 70)
+            .frame(height: 60)
             .background(Color("brandSecondary").opacity(0.5))
             .cornerRadius(10)
             .padding(.horizontal, 26)
@@ -84,7 +84,7 @@ extension GVCoursesTabView {
             }
             Spacer()
         }
-        .frame(width: isActive ? nil : 60, height: 60)
+        .frame(width: isActive ? nil : 50, height: 50)
         .background(isActive ? Color("brandPrimary").opacity(0.7) : .clear)
         .cornerRadius(5)
     }

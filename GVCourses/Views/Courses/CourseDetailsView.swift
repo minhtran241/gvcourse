@@ -10,6 +10,7 @@ import Contentful
 
 struct CourseDetailsView: View {
     
+    @Environment(\.presentationMode) var presentation
     var course: Course
     
     var body: some View {
@@ -18,15 +19,16 @@ struct CourseDetailsView: View {
                 VStack {
                     VStack {
                         HStack {
-                            Text("\(course.name) - \(course.title)")
-                                .font(.title3)
+                            Text("\(course.name.uppercased()) - \(course.title.uppercased())")
+                                .font(.title2)
                                 .fontWeight(.heavy)
                                 .foregroundColor(Color("brandPrimary"))
                                 .lineLimit(3)
-                                .padding(.vertical, 15)
+                                .padding(.bottom, 15)
+                                .padding(.top, 35)
                             Spacer()
                         }
-                        .frame(maxWidth: .infinity)
+.frame(maxWidth: .infinity)
                         
                         HStack {
                             Text(try! (AttributedString(markdown: course.description)))
@@ -57,7 +59,7 @@ struct CourseDetailsView: View {
                         
                         if (course.prerequisiteString ?? "").isEmpty == false {
                             HStack {
-                                Text(try! "Prerequisite: \(AttributedString(markdown: course.prerequisiteString!))")
+                                Text("Prerequisite: \(course.prerequisiteString!.toMarkdown())")
                                     .multilineTextAlignment(.leading)
                                     .font(.body)
                                     .foregroundColor(Color.primary.opacity(0.9))
@@ -68,7 +70,7 @@ struct CourseDetailsView: View {
                         
                         if (course.rubricsUrl ?? "").isEmpty == false {
                             HStack {
-                                Text(try! "Rubrics: \(AttributedString(markdown: "[\(course.name) Rubric](\(course.rubricsUrl!))"))")
+                                Text("Rubrics: \("[\(course.name) Rubric](\(course.rubricsUrl!))".toMarkdown())")
                                     .multilineTextAlignment(.leading)
                                     .font(.body)
                                     .foregroundColor(Color.primary.opacity(0.9))
@@ -79,7 +81,7 @@ struct CourseDetailsView: View {
                         
                         if (course.transitionPlanUrl ?? "").isEmpty == false {
                             HStack {
-                                Text(try! "Transition plan: \(AttributedString(markdown: "[\(course.name) Transition Plan](\(course.transitionPlanUrl!))"))")
+                                Text("Transition plan: \("[\(course.name) Transition Plan](\(course.transitionPlanUrl!))".toMarkdown())")
                                     .multilineTextAlignment(.leading)
                                     .font(.body)
                                     .foregroundColor(Color.primary.opacity(0.9))
@@ -94,7 +96,20 @@ struct CourseDetailsView: View {
                 .frame(maxWidth: .infinity)
                 
             }
-            .navigationBarTitleDisplayMode(.inline)
+            .gvcoursesNavigationBar(
+                title: course.name,
+                subtitle: course.title.trunc(length: 30)
+            ).navigationBarBackButtonHidden(true)
+                .toolbar(content: {
+                    ToolbarItem (placement: .navigation)  {
+                        Image(systemName: "arrow.left")
+                            .foregroundColor(.white)
+                            .onTapGesture {
+                                // code to dismiss the view
+                                self.presentation.wrappedValue.dismiss()
+                            }
+                    }
+                })
         }
     }
 }

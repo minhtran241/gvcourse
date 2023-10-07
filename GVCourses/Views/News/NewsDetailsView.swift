@@ -7,8 +7,11 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
+import MarkdownUI
 
 struct NewsDetailsView: View {
+    
+    @Environment(\.presentationMode) var presentation
     var news: News
     
     var body: some View {
@@ -26,30 +29,38 @@ struct NewsDetailsView: View {
                     VStack {
                         HStack {
                             Text(news.title)
-                                .font(.title3)
-                                .fontWeight(.heavy)
-                                .foregroundColor(.primary)
+                                .font(.largeTitle)
+                                .fontWeight(.semibold)
+                                .foregroundColor(Color("brandPrimary"))
                                 .lineLimit(3)
                                 .padding(.vertical, 15)
-                            Spacer()
                         }
                         .frame(maxWidth: .infinity)
                         
-                        Text(try! AttributedString(markdown: news.content))
-                            .multilineTextAlignment(.leading)
-                            .font(.body)
-                            .foregroundColor(Color.primary.opacity(0.9))
+                        Markdown(news.content)
+                            .markdownTheme(.gitHub)
                             .padding(.bottom, 25)
                             .frame(maxWidth: .infinity)
                     }
                     .padding(.horizontal, 20)
-                    
                     Spacer()
                 }
                 .frame(maxWidth: .infinity)
-                
             }
-            .navigationBarTitleDisplayMode(.inline)
+            .gvcoursesNavigationBar(
+                title: "Course News",
+                subtitle: news.title.trunc(length: 30)
+            ).navigationBarBackButtonHidden(true)
+                .toolbar(content: {
+                    ToolbarItem (placement: .navigation)  {
+                        Image(systemName: "arrow.left")
+                            .foregroundColor(.white)
+                            .onTapGesture {
+                                // code to dismiss the view
+                                self.presentation.wrappedValue.dismiss()
+                            }
+                    }
+                })
         }
     }
 }

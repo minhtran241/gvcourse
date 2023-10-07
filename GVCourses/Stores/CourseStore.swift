@@ -18,7 +18,7 @@ class CourseStore: ObservableObject {
         return courseList.filter { c in
             c.name.lowercased().contains(searchText.lowercased())
             || c.title.lowercased().contains(searchText.lowercased())
-        }
+        }.sorted(by: { $0.createdAt > $1.createdAt } )
     }
     
     var filteredSuggestions: [String] {
@@ -51,7 +51,9 @@ class CourseStore: ObservableObject {
                             level: item.fields["level"] as! String,
                             transitionPlanUrl: item.fields["transitionPlanUrl"] as? String ?? "",
                             prerequisite: item.fields["prerequisite"] as? String ?? "",
-                            prerequisiteString: item.fields["prerequisiteString"] as? String ?? ""                        )
+                            prerequisiteString: item.fields["prerequisiteString"] as? String ?? "",
+                            createdAt: item.sys.createdAt ?? Date.now
+                        )
                     )
                 }
             }

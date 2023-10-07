@@ -14,12 +14,12 @@ struct CourseRowView: View {
     
     var body: some View {
         HStack {
-            VStack(alignment: .leading) {
-                Text(name).foregroundStyle(.black)
-                Text("\(credits) credits").font(.subheadline).foregroundStyle(.gray)
-            }
+            Text(name).foregroundStyle(.black)
             Spacer()
-            Text(title).foregroundStyle(.gray)
+            Group {
+                Text(title).foregroundStyle(.gray) +
+                Text("(\(credits))").foregroundColor(Color(.brandPrimary))
+            }
         }
     }
 }

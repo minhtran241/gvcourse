@@ -10,6 +10,7 @@
 		FA30FF962ACE58E100017DE3 /* CourseRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA30FF952ACE58E100017DE3 /* CourseRowView.swift */; };
 		FA30FF982ACE596F00017DE3 /* CourseDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA30FF972ACE596F00017DE3 /* CourseDetailsView.swift */; };
 		FA30FFA22ACFA57200017DE3 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA30FFA12ACFA57200017DE3 /* StringExtension.swift */; };
+		FA30FFA52AD0597B00017DE3 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = FA30FFA42AD0597B00017DE3 /* MarkdownUI */; };
 		FA3411A62ACBC45A00627A3D /* ContentfulCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3411A52ACBC45A00627A3D /* ContentfulCredentials.swift */; };
 		FA3411AF2ACC9B6D00627A3D /* ContentfulClientProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3411AE2ACC9B6D00627A3D /* ContentfulClientProvider.swift */; };
 		FA80AEA92ACDAB920026CA9E /* GVCoursesSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80AEA82ACDAB920026CA9E /* GVCoursesSearchBar.swift */; };
@@ -87,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA30FFA52AD0597B00017DE3 /* MarkdownUI in Frameworks */,
 				FAF6F1162ACA25B200F0F017 /* SDWebImageSwiftUI in Frameworks */,
 				FAF6F1132ACA258B00F0F017 /* Contentful in Frameworks */,
 			);
@@ -274,6 +276,7 @@
 			packageProductDependencies = (
 				FAF6F1122ACA258B00F0F017 /* Contentful */,
 				FAF6F1152ACA25B200F0F017 /* SDWebImageSwiftUI */,
+				FA30FFA42AD0597B00017DE3 /* MarkdownUI */,
 			);
 			productName = GVCourses;
 			productReference = FAF6F0DA2ACA104400F0F017 /* GVCourses.app */;
@@ -350,6 +353,7 @@
 			packageReferences = (
 				FAF6F1112ACA258B00F0F017 /* XCRemoteSwiftPackageReference "contentful" */,
 				FAF6F1142ACA25B200F0F017 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				FA30FFA32AD0597B00017DE3 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
 			);
 			productRefGroup = FAF6F0DB2ACA104400F0F017 /* Products */;
 			projectDirPath = "";
@@ -747,6 +751,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		FA30FFA32AD0597B00017DE3 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gonzalezreal/swift-markdown-ui";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
 		FAF6F1112ACA258B00F0F017 /* XCRemoteSwiftPackageReference "contentful" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/contentful/contentful.swift";
@@ -766,6 +778,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		FA30FFA42AD0597B00017DE3 /* MarkdownUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA30FFA32AD0597B00017DE3 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */;
+			productName = MarkdownUI;
+		};
 		FAF6F1122ACA258B00F0F017 /* Contentful */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FAF6F1112ACA258B00F0F017 /* XCRemoteSwiftPackageReference "contentful" */;

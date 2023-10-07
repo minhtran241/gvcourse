@@ -38,9 +38,9 @@ struct CoursesListView: View {
             }
             .gvcoursesNavigationBar(
                 title: "Hi Student!",
-                subtitle: "Latest course news"
+                subtitle: "GV Course List"
             )
-            .listStyle(.automatic)
+            .listStyle(.inset)
             
         }
         .onAppear(perform: {store.refreshView()})

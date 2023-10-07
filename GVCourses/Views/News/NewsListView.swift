@@ -26,7 +26,7 @@ struct NewsListView: View {
             }.padding(.top, 10)
                 .gvcoursesNavigationBar(
                     title: "Hi Student!",
-                    subtitle: "Latest course news"
+                    subtitle: "Latest Course News"
                 )
                 .listStyle(InsetListStyle())
         }
