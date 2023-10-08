@@ -36,11 +36,13 @@ struct CoursesListView: View {
                     }
                 }
             }
+            .toolbar(.hidden, for: .tabBar)
             .gvcoursesNavigationBar(
-                title: "Hi Student!",
+                title: Date.getCurrentDate(),
                 subtitle: "GV Course List"
             )
-            .listStyle(.inset)
+            .listStyle(InsetListStyle())
+            .padding(.bottom, 80)
             
         }
         .onAppear(perform: {store.refreshView()})

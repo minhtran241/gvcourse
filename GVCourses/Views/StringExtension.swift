@@ -28,3 +28,13 @@ extension String {
         return (self.count > length) ? self.prefix(length) + trailing : self
     }
 }
+
+extension Date {
+
+ static func getCurrentDate() -> String {
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE, MMM d"
+        return dateFormatter.string(from: Date())
+    }
+}

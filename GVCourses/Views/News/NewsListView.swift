@@ -6,29 +6,33 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct NewsListView: View {
     
     @EnvironmentObject var store: NewsStore
     
     var body: some View {
-        NavigationStack {
+        NavigationView {
             List {
-                ForEach(store.newsList) {post in
-                    ZStack(alignment:.leading) {
-                        NavigationLink(destination: NewsDetailsView(news: post)) {
-                            EmptyView()
-                        }
-                        .opacity(0)
-                        NewsCardView(news: post)
-                    }.listRowSeparator(.hidden)
+                ForEach(store.newsList) {news in
+                    NavigationLink(destination: NewsDetailsView(news: news), label: {
+                        NewsCardView(news: news)
+                    }
+                    )
+                    NavigationLink(destination: NewsDetailsView(news: news), label: {
+                        NewsCardView(news: news)
+                    }
+                    )
                 }
-            }.padding(.top, 10)
-                .gvcoursesNavigationBar(
-                    title: "Hi Student!",
-                    subtitle: "Latest Course News"
-                )
-                .listStyle(InsetListStyle())
+            }
+            .toolbar(.hidden, for: .tabBar)
+            .gvcoursesNavigationBar(
+                title: Date.getCurrentDate(),
+                subtitle: "Latest Course News"
+            )
+            .listStyle(InsetListStyle())
+            .padding(.bottom, 80)
         }
         .onAppear(perform: {store.refreshView()})
     }

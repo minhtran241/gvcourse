@@ -27,26 +27,16 @@ struct NewsDetailsView: View {
                         .clipped()
                     
                     VStack {
-                        HStack {
-                            Text(news.title)
-                                .font(.largeTitle)
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color("brandPrimary"))
-                                .lineLimit(3)
-                                .padding(.vertical, 15)
-                        }
-                        .frame(maxWidth: .infinity)
-                        
                         Markdown(news.content)
                             .markdownTheme(.gitHub)
-                            .padding(.bottom, 25)
-                            .frame(maxWidth: .infinity)
+                            .padding(.horizontal, 20)
                     }
-                    .padding(.horizontal, 20)
                     Spacer()
                 }
                 .frame(maxWidth: .infinity)
+                .padding(.bottom, 80)
             }
+            .toolbar(.hidden, for: .tabBar)
             .gvcoursesNavigationBar(
                 title: "Course News",
                 subtitle: news.title.trunc(length: 30)

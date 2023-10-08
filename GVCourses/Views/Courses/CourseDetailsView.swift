@@ -28,7 +28,7 @@ struct CourseDetailsView: View {
                                 .padding(.top, 35)
                             Spacer()
                         }
-.frame(maxWidth: .infinity)
+                        .frame(maxWidth: .infinity)
                         
                         HStack {
                             Text(try! (AttributedString(markdown: course.description)))
@@ -94,8 +94,9 @@ struct CourseDetailsView: View {
                     Spacer()
                 }
                 .frame(maxWidth: .infinity)
-                
+                .padding(.bottom, 80)
             }
+            .toolbar(.hidden, for: .tabBar)
             .gvcoursesNavigationBar(
                 title: course.name,
                 subtitle: course.title.trunc(length: 30)
