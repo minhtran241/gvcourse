@@ -11,28 +11,27 @@ class NewsStore: ObservableObject {
     
     @Published var newsList: [News] = []
     
-//    init() {
-//        DispatchQueue.main.async {
-//            self.refreshView()
-//        }
-//    }
+    init() {
+        DispatchQueue.main.async {
+            self.refreshView()
+        }
+    }
     
     func refreshView(){
         self.newsList.removeAll()
-        DispatchQueue.main.async {
-            getAll(id: "news") {items in
-                items.forEach {(item) in
-                    self.newsList.append(
-                        News(
-                            title: item.fields["title"] as! String,
-                            description: item.fields["description"] as! String,
-                            thumbnail: item.fields.linkedAsset(at: "thumbnail")?.url ?? URL(string: ""),
-                            content: item.fields["content"] as? String ?? "",
-                            featured: item.fields["featured"] as? Bool ?? false,
-                            createdAt: item.sys.createdAt ?? Date.now
-                        )
+        getAll(id: "news") {items in
+            items.forEach {(item) in
+                self.newsList.append(
+                    News(
+                        id: item.sys.id,
+                        title: item.fields["title"] as! String,
+                        description: item.fields["description"] as! String,
+                        thumbnail: item.fields.linkedAsset(at: "thumbnail")?.url ?? URL(string: ""),
+                        content: item.fields["content"] as? String ?? "",
+                        featured: item.fields["featured"] as? Bool ?? false,
+                        createdAt: item.sys.createdAt ?? Date.now
                     )
-                }
+                )
             }
         }
     }

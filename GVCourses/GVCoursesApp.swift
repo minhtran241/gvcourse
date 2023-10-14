@@ -11,7 +11,12 @@ import SwiftUI
 struct GVCoursesApp: App {
     var body: some Scene {
         WindowGroup {
-            GVCoursesTabView()
+            //            GVCoursesTabView()
+            NavigationView{
+                Login()
+                    .navigationBarHidden(true)
+                    .navigationBarBackButtonHidden(true)
+            }
         }
     }
 }

@@ -44,8 +44,10 @@ struct CoursesListView: View {
             .listStyle(InsetListStyle())
             .padding(.bottom, 80)
             
+        }.refreshable {
+            store.refreshView()
         }
-        .onAppear(perform: {store.refreshView()})
+//        .onAppear(perform: {store.refreshView()})
     }
 }
 

@@ -13,6 +13,12 @@ class CourseStore: ObservableObject {
     @Published var courseList: [Course] = []
     @Published var searchText: String = ""
     
+    init() {
+        DispatchQueue.main.async {
+            self.refreshView()
+        }
+    }
+    
     var filteredCourses: [Course] {
         guard !searchText.isEmpty else { return courseList }
         return courseList.filter { c in
@@ -36,11 +42,11 @@ class CourseStore: ObservableObject {
     
     func refreshView(){
         self.courseList.removeAll()
-        DispatchQueue.main.async {
-            getAll(id: "gvCourse") {items in
+        getAll(id: "gvCourse") {items in
                 items.forEach {(item) in
                     self.courseList.append(
                         Course(
+                            id: item.sys.id,
                             number: item.fields["number"] as! Int,
                             subject: item.fields["subject"] as! String,
                             name: item.fields["name"] as! String,
@@ -57,6 +63,5 @@ class CourseStore: ObservableObject {
                     )
                 }
             }
-        }
     }
 }

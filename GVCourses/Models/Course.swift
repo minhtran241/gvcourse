@@ -9,7 +9,7 @@ import Foundation
 import Contentful
 
 struct Course: Identifiable {
-    let id = UUID()
+    let id: String
     let number: Int
     let subject: String
     let name: String
@@ -23,7 +23,8 @@ struct Course: Identifiable {
     let prerequisiteString: String?
     let createdAt: Date
     
-    init(number: Int, subject: String, name: String, title: String, description: String, credits: Int, rubricsUrl: String?, level: String, transitionPlanUrl: String?, prerequisite: String?, prerequisiteString: String?, createdAt: Date) {
+    init(id: String, number: Int, subject: String, name: String, title: String, description: String, credits: Int, rubricsUrl: String?, level: String, transitionPlanUrl: String?, prerequisite: String?, prerequisiteString: String?, createdAt: Date) {
+        self.id = id
         self.number = number
         self.subject = subject.uppercased()
         self.name = name
@@ -37,9 +38,5 @@ struct Course: Identifiable {
         self.prerequisiteString = prerequisiteString
         self.createdAt = createdAt
     }
-
 }
 
-struct CourseResponse {
-     
-}
