@@ -6,12 +6,12 @@
 //
 
 import SwiftUI
-import Contentful
 
 class CourseStore: ObservableObject {
     
     @Published var courseList: [Course] = []
     @Published var searchText: String = ""
+    private var dbManager = DatabaseManager.shared
     
     init() {
         DispatchQueue.main.async {
@@ -22,9 +22,9 @@ class CourseStore: ObservableObject {
     var filteredCourses: [Course] {
         guard !searchText.isEmpty else { return courseList }
         return courseList.filter { c in
-            c.name.lowercased().contains(searchText.lowercased())
-            || c.title.lowercased().contains(searchText.lowercased())
-        }.sorted(by: { $0.createdAt > $1.createdAt } )
+            c.name!.lowercased().contains(searchText.lowercased())
+            || c.title!.lowercased().contains(searchText.lowercased())
+        }.sorted(by: { $0.createdAt! > $1.createdAt! } )
     }
     
     var filteredSuggestions: [String] {
@@ -33,8 +33,8 @@ class CourseStore: ObservableObject {
         var suggestions: [String] = []
         for i in 0...4 {
             if i < fc.count {
-                suggestions.append(fc[i].name.trunc(length: 30))
-                suggestions.append(fc[i].title.lowercased().trunc(length: 30))
+                suggestions.append(fc[i].name!.trunc(length: 30))
+                suggestions.append(fc[i].title!.lowercased().trunc(length: 30))
             }
         }
         return suggestions.sorted()
@@ -42,26 +42,12 @@ class CourseStore: ObservableObject {
     
     func refreshView(){
         self.courseList.removeAll()
-        getAll(id: "gvCourse") {items in
-                items.forEach {(item) in
-                    self.courseList.append(
-                        Course(
-                            id: item.sys.id,
-                            number: item.fields["number"] as! Int,
-                            subject: item.fields["subject"] as! String,
-                            name: item.fields["name"] as! String,
-                            title: item.fields["title"] as! String,
-                            description: item.fields["description"] as! String,
-                            credits: item.fields["credits"] as! Int,
-                            rubricsUrl: item.fields["rubricsUrl"] as? String ?? "",
-                            level: item.fields["level"] as! String,
-                            transitionPlanUrl: item.fields["transitionPlanUrl"] as? String ?? "",
-                            prerequisite: item.fields["prerequisite"] as? String ?? "",
-                            prerequisiteString: item.fields["prerequisiteString"] as? String ?? "",
-                            createdAt: item.sys.createdAt ?? Date.now
-                        )
-                    )
-                }
+        self.dbManager.getAllCourses { courses, error in
+            if let error = error {
+                print("Error fetching courses: \(error.localizedDescription)")
+                return
             }
+            self.courseList.append(contentsOf: courses!)
+        }
     }
 }

@@ -20,10 +20,6 @@ struct NewsListView: View {
                         NewsCardView(news: news)
                     }
                     )
-                    NavigationLink(destination: NewsDetailsView(news: news), label: {
-                        NewsCardView(news: news)
-                    }
-                    )
                 }
             }
             .toolbar(.hidden, for: .tabBar)

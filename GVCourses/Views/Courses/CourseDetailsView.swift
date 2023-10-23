@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Contentful
 
 struct CourseDetailsView: View {
     
@@ -19,7 +18,7 @@ struct CourseDetailsView: View {
                 VStack {
                     VStack {
                         HStack {
-                            Text("\(course.name.uppercased()) - \(course.title.uppercased())")
+                            Text("\(course.name!.uppercased()) - \(course.title!.uppercased())")
                                 .font(.title2)
                                 .fontWeight(.heavy)
                                 .foregroundColor(Color("brandPrimary"))
@@ -31,7 +30,7 @@ struct CourseDetailsView: View {
                         .frame(maxWidth: .infinity)
                         
                         HStack {
-                            Text(try! (AttributedString(markdown: course.description)))
+                            Text(try! (AttributedString(markdown: course.description!)))
                                 .multilineTextAlignment(.leading)
                                 .font(.body)
                                 .foregroundColor(Color.primary.opacity(0.9))
@@ -40,7 +39,7 @@ struct CourseDetailsView: View {
                         }.frame(maxWidth: .infinity)
                         
                         HStack {
-                            Text("Level: \(course.level)")
+                            Text("Level: \(course.level ?? "Undergraduate")")
                                 .multilineTextAlignment(.leading)
                                 .font(.body)
                                 .foregroundColor(Color.primary.opacity(0.9))
@@ -49,7 +48,7 @@ struct CourseDetailsView: View {
                         }.frame(maxWidth: .infinity)
                         
                         HStack {
-                            Text("Credits: \(course.credits)")
+                            Text("Credits: \(course.credits ?? 3)")
                                 .multilineTextAlignment(.leading)
                                 .font(.body)
                                 .foregroundColor(Color.primary.opacity(0.9))
@@ -70,7 +69,7 @@ struct CourseDetailsView: View {
                         
                         if (course.rubricsUrl ?? "").isEmpty == false {
                             HStack {
-                                Text("Rubrics: \("[\(course.name) Rubric](\(course.rubricsUrl!))".toMarkdown())")
+                                Text("Rubrics: \("[\(course.name ?? "") Rubric](\(course.rubricsUrl!))".toMarkdown())")
                                     .multilineTextAlignment(.leading)
                                     .font(.body)
                                     .foregroundColor(Color.primary.opacity(0.9))
@@ -81,7 +80,7 @@ struct CourseDetailsView: View {
                         
                         if (course.transitionPlanUrl ?? "").isEmpty == false {
                             HStack {
-                                Text("Transition plan: \("[\(course.name) Transition Plan](\(course.transitionPlanUrl!))".toMarkdown())")
+                                Text("Transition plan: \("[\(course.name ?? "") Transition Plan](\(course.transitionPlanUrl!))".toMarkdown())")
                                     .multilineTextAlignment(.leading)
                                     .font(.body)
                                     .foregroundColor(Color.primary.opacity(0.9))
@@ -98,8 +97,8 @@ struct CourseDetailsView: View {
             }
             .toolbar(.hidden, for: .tabBar)
             .gvcoursesNavigationBar(
-                title: course.name,
-                subtitle: course.title.trunc(length: 30)
+                title: course.name!,
+                subtitle: course.title!.trunc(length: 30)
             ).navigationBarBackButtonHidden(true)
                 .toolbar(content: {
                     ToolbarItem (placement: .navigation)  {

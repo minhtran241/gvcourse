@@ -6,31 +6,39 @@
 //
 
 import Foundation
-import Contentful
 
 struct News: Identifiable {
-    var id: String
-    var title: String
-    var description: String
+    var id: String?
+    var title: String?
+    var subtitle: String?
+    var description: String?
     var thumbnail: URL?
-    var content: String
-    var featured: Bool
-    let createdAt: Date
+    var registerInstruction: String?
+    var partnership: String?
+    var featured: Bool?
+    let createdAt: Date?
     
-    init(id: String, title: String, description: String, thumbnail: URL? = nil, content: String, featured: Bool = false, createdAt: Date) {
+    init(id: String? = nil, title: String? = nil, subtitle: String? = nil, description: String? = nil, thumbnail: URL? = nil, registerInstruction: String? = nil, partnership: String? = nil, createdAt: Date?) {
         self.id = id
         self.title = title
+        self.subtitle = subtitle
         self.description = description
         self.thumbnail = thumbnail
-        self.content = content
-        self.featured = featured
+        self.registerInstruction = registerInstruction
+        self.partnership = partnership
         self.createdAt = createdAt
     }
-}
-
-struct MockData {
-    static let sampleNews = News(id: "123456", title: "New Course!", description: "This is new course", thumbnail: URL(string: "https://media.nature.com/lw800/magazine-assets/d41586-020-03053-2/d41586-020-03053-2_18533904.jpg"), content: "This is about the new course", createdAt: Date.now)
-    static let news: [News] = [sampleNews, sampleNews, sampleNews, sampleNews]
+    
+    init() {
+        self.id = nil
+        self.title = nil
+        self.subtitle = nil
+        self.description = nil
+        self.thumbnail = nil
+        self.registerInstruction = nil
+        self.partnership = nil
+        self.createdAt = nil
+    }
 }
 
 

@@ -32,7 +32,7 @@ struct CoursesListView: View {
                             EmptyView()
                         }
                         .opacity(0)
-                        CourseRowView(name: c.name, credits: c.credits, title: c.title)
+                        CourseRowView(name: c.name!, credits: c.credits!, title: c.title!)
                     }
                 }
             }

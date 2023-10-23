@@ -10,8 +10,9 @@ import FirebaseAuth
 import GoogleSignIn
 import Firebase
 
-struct FirebAuth {
-    static let share = FirebAuth()
+struct AuthManager {
+    static let shared = AuthManager()
+    private let auth = Auth.auth()
     
     private init() {}
     
@@ -36,7 +37,7 @@ struct FirebAuth {
             
             let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: user.accessToken.tokenString)
             
-            Auth.auth().signIn(with: credential) { result, error in
+            self.auth.signIn(with: credential) { result, error in
                 guard error == nil else {
                     completion(error)
                     return
@@ -48,7 +49,15 @@ struct FirebAuth {
     }
     
     func signInWithEmail(email: String, password: String) {
-        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+        guard !email.trimmingCharacters(in: .whitespaces).isEmpty,
+              !password.trimmingCharacters(in: .whitespaces).isEmpty,
+              password.count >= 6 else {
+            return
+        }
+        self.auth.signIn(withEmail: email, password: password) { (result, error) in
+            guard result != nil, error == nil else {
+                return
+            }
             print("SIGN IN")
             UserDefaults.standard.set(true, forKey: "signIn") // When this change to true, it will go to the home screen
         }
@@ -57,7 +66,7 @@ struct FirebAuth {
     func signout() {
         GIDSignIn.sharedInstance.signOut()
         do {
-            try Auth.auth().signOut()
+            try self.auth.signOut()
             print("SIGN OUT")
             UserDefaults.standard.set(false, forKey: "signIn") // When this change to false, it will go to the sign in screen
         } catch let signOutError as NSError {

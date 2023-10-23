@@ -53,7 +53,7 @@ struct GVCoursesNavigationBar: ViewModifier {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Sign Out") {
-                        FirebAuth.share.signout()
+                        AuthManager.shared.signout()
                     }.foregroundStyle(.white)
                 }
             }

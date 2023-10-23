@@ -23,12 +23,12 @@ struct NewsCardView: View {
                 .cornerRadius(4)
                 .padding(.vertical, 4)
             VStack(alignment: .leading, spacing: 5) {
-                Text(news.title)
+                Text(news.title!)
                     .fontWeight(.semibold)
                     .foregroundStyle(.brandPrimary)
                     .lineLimit(2)
                     .minimumScaleFactor(0.5)
-                Text(news.createdAt, style: .date)
+                Text(news.createdAt!, style: .date)
                     .font(.subheadline)
                     .foregroundColor(.brandSecondary)
             }
@@ -36,6 +36,6 @@ struct NewsCardView: View {
     }
 }
 
-#Preview {
-    NewsCardView(news: MockData.sampleNews)
-}
+//#Preview {
+//    NewsCardView(news: MockData.sampleNews)
+//}

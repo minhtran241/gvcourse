@@ -32,12 +32,12 @@ struct SignInView: View {
                 .padding(.bottom, 12)
                 
                 CustomButton {
-                    FirebAuth.share.signInWithEmail(email: email, password: password)
+                    AuthManager.shared.signInWithEmail(email: email, password: password)
                 }
                 
                 GoogleSiginBtn {
                     // TODO: - Call the sign method here
-                    FirebAuth.share.signinWithGoogle(presenting: getRootViewController()) { error in
+                    AuthManager.shared.signinWithGoogle(presenting: getRootViewController()) { error in
                         // TODO: Handle ERROR
                     }
                 }

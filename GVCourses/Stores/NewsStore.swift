@@ -10,6 +10,7 @@ import SwiftUI
 class NewsStore: ObservableObject {
     
     @Published var newsList: [News] = []
+    private var dbManager = DatabaseManager.shared
     
     init() {
         DispatchQueue.main.async {
@@ -19,20 +20,12 @@ class NewsStore: ObservableObject {
     
     func refreshView(){
         self.newsList.removeAll()
-        getAll(id: "news") {items in
-            items.forEach {(item) in
-                self.newsList.append(
-                    News(
-                        id: item.sys.id,
-                        title: item.fields["title"] as! String,
-                        description: item.fields["description"] as! String,
-                        thumbnail: item.fields.linkedAsset(at: "thumbnail")?.url ?? URL(string: ""),
-                        content: item.fields["content"] as? String ?? "",
-                        featured: item.fields["featured"] as? Bool ?? false,
-                        createdAt: item.sys.createdAt ?? Date.now
-                    )
-                )
+        self.dbManager.getAllNews { news, error in
+            if let error = error {
+                print("Error fetching news: \(error.localizedDescription)")
+                return
             }
+            self.newsList.append(contentsOf: news!)
         }
     }
 }
