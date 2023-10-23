@@ -7,78 +7,67 @@
 
 import SwiftUI
 
-struct CustomTextField: View {
-    
-    // Fields...
-    var image: String
+struct CustomTextfield: View {
     var title: String
-    @Binding var value: String
-    
-    var animation: Namespace.ID
+    @Binding var text: String
+    var isPassword: Bool = false
     
     var body: some View {
-        
-        VStack(spacing: 6){
-            
-            HStack(alignment: .bottom){
-                
-                Image(systemName: image)
-                    .font(.system(size: 22))
-                    .foregroundStyle(.white)
-                    .frame(width: 35)
-                
-                VStack(alignment: .leading, spacing: 6) {
-                    
-                    if value != "" {
-                        
-                        Text(title)
-                            .font(.caption)
-                            .fontWeight(.heavy)
-                            .foregroundStyle(.white)
-                            .matchedGeometryEffect(id: title, in: animation)
-                    }
-                    
-                    ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {
-                        
-                        if value == "" {
-                            
-                            Text(title)
-                                .font(.caption)
-                                .fontWeight(.heavy)
-                                .foregroundStyle(.white)
-                                .matchedGeometryEffect(id: title, in: animation)
-                        }
-                        
-                        if title == "PASSWORD" {
-                            
-                            SecureField("", text: $value)
-                                .foregroundStyle(.white)
-                                
-                                
-                        } else {
-                            
-                            TextField("", text: $value)
-                            // For Phone Number...
-                                .keyboardType(title == "PHONE NUMBER" ? .numberPad : .default)
-                                .foregroundStyle(.white)
-                        }
-                    }
-                }
-            }
-            
-            if value == "" {
-                
-                Divider()
-            }
+        if (isPassword) {
+            SecureInputView(title, text: $text)
+        } else {
+            TextField(title, text: $text)
+                .padding(16)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(Color.brandPrimary)
+                )
+                .padding(.horizontal, 22)
+                .padding(.vertical, 8)
+                .textInputAutocapitalization(.never)
         }
-        .padding(.horizontal)
-        .padding(.vertical, 10)
-//        .background(Color("txt").opacity(value != "" ? 1 : 0))
-        .cornerRadius(8)
-        .shadow(color: Color.white.opacity(value == "" ? 0 : 0.1), radius: 5, x: 5, y: 5)
-        .shadow(color: Color.white.opacity(value == "" ? 0 : 0.05), radius: 5, x: -5, y: -5)
-        .padding(.horizontal)
-        .padding(.top)
-        .animation(.linear)
+    }
+}
+
+struct SecureInputView: View {
+    
+    @Binding private var text: String
+    @State private var isSecured: Bool = true
+    private var title: String
+    
+    init(_ title: String, text: Binding<String>) {
+        self.title = title
+        self._text = text
+    }
+    
+    var body: some View {
+        ZStack(alignment: .trailing) {
+            Group {
+                if isSecured {
+                    SecureField(title, text: $text).textInputAutocapitalization(.never)
+                } else {
+                    TextField(title, text: $text).textInputAutocapitalization(.never)
+                }
+            }.padding(.trailing, 32)
+
+            Button(action: {
+                isSecured.toggle()
+            }) {
+                Image(systemName: self.isSecured ? "eye.slash" : "eye")
+                    .accentColor(.gray)
+            }
+        }.padding(16)
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(Color.brandPrimary)
+            )
+            .padding(.horizontal, 22)
+            .padding(.vertical, 8)
+    }
+}
+
+struct CustomTextfield_Previews: PreviewProvider {
+    static var previews: some View {
+        CustomTextfield(title: "Username", text: .constant(""))
     }
 }

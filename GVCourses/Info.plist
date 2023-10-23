@@ -8,6 +8,17 @@
 	<array>
 		<dict/>
 	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.748332230046-afaqlssr690jpgu1gfc23d66egrb428n</string>
+			</array>
+		</dict>
+	</array>
 	<key>CONTENTFUL_ACCESS_TOKEN</key>
 	<string>$(CONTENTFUL_ACCESS_TOKEN)</string>
 	<key>CONTENTFUL_ENVIRONMENT_ID</key>
