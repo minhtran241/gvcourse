@@ -33,12 +33,14 @@ struct NewsDetailsView: View {
                             Text(formatTimeSinceCreated(createdAt: news.createdAt!))
                                 .font(.subheadline).foregroundStyle(.gray)
                         }
-                        HStack(spacing: 5) {
-                            Image(systemName: "bookmark.fill")
-                                .font(.subheadline)
-                                .foregroundColor(.gray)
-                            Text("newcourse")
-                                .font(.subheadline).foregroundStyle(.gray)
+                        if (news.partnership ?? "").isEmpty == false {
+                            HStack(spacing: 5) {
+                                Image(systemName: "building.2.fill")
+                                    .font(.subheadline)
+                                    .foregroundColor(.gray)
+                                Text(news.partnership!)
+                                    .font(.subheadline).foregroundStyle(.gray)
+                            }
                         }
                         Spacer()
                     }.padding(.horizontal, 15)
@@ -50,7 +52,7 @@ struct NewsDetailsView: View {
                                 .fontWeight(.bold)
                                 .foregroundColor(Color("brandPrimary"))
                                 .lineLimit(3)
-                                .padding(.top, 5)
+                                .padding(.vertical, 3)
                             Spacer()
                         }
                         .frame(maxWidth: .infinity)
@@ -67,41 +69,10 @@ struct NewsDetailsView: View {
                             Spacer()
                         }.frame(maxWidth: .infinity)
                         
-                        HStack {
-                            Text(news.description!)
-                                .multilineTextAlignment(.leading)
-                                .font(.body)
-                                .foregroundColor(Color.primary.opacity(0.9))
-                                .padding(15)
-                                .background(
-                                    Color.gray.opacity(0.3)
-                                )
-                                .cornerRadius(5)
-                                .padding(.bottom, 10)
-                            Spacer()
-                        }.frame(maxWidth: .infinity)
-                        
+                        CustomTextBox(systemSymbol: "questionmark.bubble.fill", title: "What you should know", textBody: news.description!)
                         
                         if (news.registerInstruction ?? "").isEmpty == false {
-                            HStack {
-                                Text("**Register:** \(news.registerInstruction!)")
-                                    .multilineTextAlignment(.leading)
-                                    .font(.body)
-                                    .foregroundColor(Color.primary.opacity(0.9))
-                                    .padding(.bottom, 10)
-                                Spacer()
-                            }.frame(maxWidth: .infinity)
-                        }
-                        
-                        if (news.partnership ?? "").isEmpty == false {
-                            HStack {
-                                Text("**Partnership:** \(news.partnership!)")
-                                    .multilineTextAlignment(.leading)
-                                    .font(.body)
-                                    .foregroundColor(Color.primary.opacity(0.9))
-                                    .padding(.bottom, 2)
-                                Spacer()
-                            }.frame(maxWidth: .infinity)
+                            CustomTextBox(systemSymbol: "questionmark.bubble.fill", title: "How to register", textBody: news.registerInstruction!)
                         }
                     }.padding(.horizontal, 15)
                     Spacer()

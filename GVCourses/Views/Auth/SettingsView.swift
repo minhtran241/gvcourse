@@ -24,7 +24,8 @@ struct SettingsView: View {
                         .foregroundColor(Color.primary.opacity(0.9))
                         .padding(.bottom, 10)
                     Spacer()
-                }.frame(maxWidth: .infinity)
+                }.padding(.horizontal, 20)
+                .frame(maxWidth: .infinity)
                 
                 HStack {
                     Text("**App Version:** 1.0.0")
@@ -33,7 +34,8 @@ struct SettingsView: View {
                         .foregroundColor(Color.primary.opacity(0.9))
                         .padding(.bottom, 10)
                     Spacer()
-                }.frame(maxWidth: .infinity)
+                }.padding(.horizontal, 20)
+                .frame(maxWidth: .infinity)
                 
                 HStack {
                     Text("**Provider ID:** \((store.user?.providerID)!)")
@@ -42,7 +44,8 @@ struct SettingsView: View {
                         .foregroundColor(Color.primary.opacity(0.9))
                         .padding(.bottom, 10)
                     Spacer()
-                }.frame(maxWidth: .infinity)
+                }.padding(.horizontal, 20)
+                .frame(maxWidth: .infinity)
                 
                 CustomButton(text: "Logout") {
                     // Perform logout action here
@@ -65,7 +68,8 @@ struct SettingsView: View {
                     })
                     .foregroundColor(.red)
                     Spacer()
-                }.frame(maxWidth: .infinity)
+                }.padding(.horizontal, 20)
+                    .frame(maxWidth: .infinity)
                 Spacer()
             }
             .toolbar(.hidden, for: .tabBar)
@@ -74,7 +78,6 @@ struct SettingsView: View {
             )
             .frame(maxWidth: .infinity)
             .padding(.top, 15)
-            .padding(.horizontal, 20)
         }.refreshable {
             store.refreshView()
         }

@@ -28,19 +28,7 @@ struct CourseDetailsView: View {
                         }
                         .frame(maxWidth: .infinity)
                         
-                        HStack {
-                            Text(try! (AttributedString(markdown: course.description!)))
-                                .multilineTextAlignment(.leading)
-                                .font(.body)
-                                .padding(15)
-                                .background(
-                                    Color.gray.opacity(0.3)
-                                )
-                                .cornerRadius(5)
-                                .foregroundColor(Color.primary.opacity(0.9))
-                                .padding(.bottom, 5)
-                            Spacer()
-                        }.frame(maxWidth: .infinity)
+                        CustomTextBox(systemSymbol: "questionmark.bubble.fill", title: "What this course is about", textBody: course.description!)
                         
                         HStack {
                             Text("**Level:** \(course.level ?? "Undergraduate")")
