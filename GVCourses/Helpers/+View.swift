@@ -21,4 +21,9 @@ extension View {
 
         return root
     }
+    
+    func withErrorHandling() -> some View {
+        modifier(HandleErrorsByShowingAlertViewModifier())
+    }
 }
+

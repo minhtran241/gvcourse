@@ -10,6 +10,7 @@ import FirebaseAuth
 
 struct SignInView: View {
     
+    @EnvironmentObject var errorHandling: ErrorHandling
     @State var email: String = ""
     @State var password: String = ""
     
@@ -32,13 +33,19 @@ struct SignInView: View {
                 .padding(.bottom, 12)
                 
                 CustomButton {
-                    AuthManager.shared.signInWithEmail(email: email, password: password)
+                    AuthManager.shared.signInWithEmail(email: email, password: password) { error in
+                        // TODO: Handle ERROR
+                        self.errorHandling.handle(error: error!)
+                    }
                 }
+
+                LabelledDivider(label: "or")
                 
                 GoogleSiginBtn {
                     // TODO: - Call the sign method here
                     AuthManager.shared.signinWithGoogle(presenting: getRootViewController()) { error in
                         // TODO: Handle ERROR
+                        self.errorHandling.handle(error: error!)
                     }
                 }
             }

@@ -20,11 +20,10 @@ struct CourseDetailsView: View {
                         HStack {
                             Text("\(course.name!.uppercased()) - \(course.title!.uppercased())")
                                 .font(.title2)
-                                .fontWeight(.heavy)
+                                .fontWeight(.semibold)
                                 .foregroundColor(Color("brandPrimary"))
                                 .lineLimit(3)
-                                .padding(.bottom, 15)
-                                .padding(.top, 35)
+                                .padding(.vertical, 15)
                             Spacer()
                         }
                         .frame(maxWidth: .infinity)
@@ -33,13 +32,18 @@ struct CourseDetailsView: View {
                             Text(try! (AttributedString(markdown: course.description!)))
                                 .multilineTextAlignment(.leading)
                                 .font(.body)
+                                .padding(15)
+                                .background(
+                                    Color.gray.opacity(0.3)
+                                )
+                                .cornerRadius(5)
                                 .foregroundColor(Color.primary.opacity(0.9))
                                 .padding(.bottom, 5)
                             Spacer()
                         }.frame(maxWidth: .infinity)
                         
                         HStack {
-                            Text("Level: \(course.level ?? "Undergraduate")")
+                            Text("**Level:** \(course.level ?? "Undergraduate")")
                                 .multilineTextAlignment(.leading)
                                 .font(.body)
                                 .foregroundColor(Color.primary.opacity(0.9))
@@ -48,7 +52,7 @@ struct CourseDetailsView: View {
                         }.frame(maxWidth: .infinity)
                         
                         HStack {
-                            Text("Credits: \(course.credits ?? 3)")
+                            Text("**Credits:** \(course.credits ?? 3)")
                                 .multilineTextAlignment(.leading)
                                 .font(.body)
                                 .foregroundColor(Color.primary.opacity(0.9))
@@ -58,7 +62,7 @@ struct CourseDetailsView: View {
                         
                         if (course.prerequisiteString ?? "").isEmpty == false {
                             HStack {
-                                Text("Prerequisite: \(course.prerequisiteString!.toMarkdown())")
+                                Text("**Prerequisite:** \(course.prerequisiteString!.toMarkdown())")
                                     .multilineTextAlignment(.leading)
                                     .font(.body)
                                     .foregroundColor(Color.primary.opacity(0.9))
@@ -69,7 +73,7 @@ struct CourseDetailsView: View {
                         
                         if (course.rubricsUrl ?? "").isEmpty == false {
                             HStack {
-                                Text("Rubrics: \("[\(course.name ?? "") Rubric](\(course.rubricsUrl!))".toMarkdown())")
+                                Text("**Rubrics:** \("[\(course.name ?? "") Rubric](\(course.rubricsUrl!))".toMarkdown())")
                                     .multilineTextAlignment(.leading)
                                     .font(.body)
                                     .foregroundColor(Color.primary.opacity(0.9))
@@ -80,7 +84,7 @@ struct CourseDetailsView: View {
                         
                         if (course.transitionPlanUrl ?? "").isEmpty == false {
                             HStack {
-                                Text("Transition plan: \("[\(course.name ?? "") Transition Plan](\(course.transitionPlanUrl!))".toMarkdown())")
+                                Text("**Transition plan:** \("[\(course.name ?? "") Transition Plan](\(course.transitionPlanUrl!))".toMarkdown())")
                                     .multilineTextAlignment(.leading)
                                     .font(.body)
                                     .foregroundColor(Color.primary.opacity(0.9))
@@ -97,8 +101,7 @@ struct CourseDetailsView: View {
             }
             .toolbar(.hidden, for: .tabBar)
             .gvcoursesNavigationBar(
-                title: course.name!,
-                subtitle: course.title!.trunc(length: 30)
+                title: course.name!            
             ).navigationBarBackButtonHidden(true)
                 .toolbar(content: {
                     ToolbarItem (placement: .navigation)  {

@@ -38,8 +38,7 @@ struct CoursesListView: View {
             }
             .toolbar(.hidden, for: .tabBar)
             .gvcoursesNavigationBar(
-                title: Date.getCurrentDate(),
-                subtitle: "GV Course List"
+                title: Date.getCurrentDate()
             )
             .listStyle(InsetListStyle())
             .padding(.bottom, 80)

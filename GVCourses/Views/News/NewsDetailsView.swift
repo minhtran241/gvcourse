@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
+import FirebaseFirestore
 
 struct NewsDetailsView: View {
     
@@ -25,26 +26,44 @@ struct NewsDetailsView: View {
                         .frame(maxWidth: UIScreen.main.bounds.width)
                         .clipped()
                     
+                    
+                    HStack(spacing: 10) {
+                        HStack(spacing: 5) {
+                            Image(systemName: "clock.fill").font(.subheadline).foregroundColor(.gray)
+                            Text(formatTimeSinceCreated(createdAt: news.createdAt!))
+                                .font(.subheadline).foregroundStyle(.gray)
+                        }
+                        HStack(spacing: 5) {
+                            Image(systemName: "bookmark.fill")
+                                .font(.subheadline)
+                                .foregroundColor(.gray)
+                            Text("newcourse")
+                                .font(.subheadline).foregroundStyle(.gray)
+                        }
+                        Spacer()
+                    }.padding(.horizontal, 15)
+                    
                     VStack {
                         HStack {
-                            Text(news.title!.uppercased())
-                                .font(.title2)
-                                .fontWeight(.medium)
+                            Text(news.title!)
+                                .font(.title3)
+                                .fontWeight(.bold)
                                 .foregroundColor(Color("brandPrimary"))
                                 .lineLimit(3)
-                                .padding(.bottom, 15)
-                                .padding(.top, 15)
+                                .padding(.top, 5)
                             Spacer()
                         }
                         .frame(maxWidth: .infinity)
                         
+                        
+                        
                         HStack {
-                            Text(news.subtitle!.uppercased())
-                                .multilineTextAlignment(.center)
-                                .font(.body)
-                                .foregroundColor(Color.red)
-                                .underline()
-                                .padding(.bottom, 15)
+                            Text(news.subtitle!)
+                                .multilineTextAlignment(.leading)
+                                .font(.subheadline)
+                                .foregroundColor(Color.primary.opacity(0.6))
+                                .italic()
+                                .padding(.bottom, 10)
                             Spacer()
                         }.frame(maxWidth: .infinity)
                         
@@ -53,26 +72,30 @@ struct NewsDetailsView: View {
                                 .multilineTextAlignment(.leading)
                                 .font(.body)
                                 .foregroundColor(Color.primary.opacity(0.9))
-                                .padding(.bottom, 15)
+                                .padding(15)
+                                .background(
+                                    Color.gray.opacity(0.3)
+                                )
+                                .cornerRadius(5)
+                                .padding(.bottom, 10)
                             Spacer()
                         }.frame(maxWidth: .infinity)
                         
                         
                         if (news.registerInstruction ?? "").isEmpty == false {
                             HStack {
-                                Text(news.registerInstruction!)
-                                    .multilineTextAlignment(.center)
+                                Text("**Register:** \(news.registerInstruction!)")
+                                    .multilineTextAlignment(.leading)
                                     .font(.body)
-                                    .foregroundColor(Color.red)
-                                    .underline()
-                                    .padding(.bottom, 15)
+                                    .foregroundColor(Color.primary.opacity(0.9))
+                                    .padding(.bottom, 10)
                                 Spacer()
                             }.frame(maxWidth: .infinity)
                         }
                         
                         if (news.partnership ?? "").isEmpty == false {
                             HStack {
-                                Text("Partnership: \(news.partnership!)")
+                                Text("**Partnership:** \(news.partnership!)")
                                     .multilineTextAlignment(.leading)
                                     .font(.body)
                                     .foregroundColor(Color.primary.opacity(0.9))
@@ -80,7 +103,7 @@ struct NewsDetailsView: View {
                                 Spacer()
                             }.frame(maxWidth: .infinity)
                         }
-                    }.padding(.horizontal, 20)
+                    }.padding(.horizontal, 15)
                     Spacer()
                 }
                 .frame(maxWidth: .infinity)
@@ -88,8 +111,7 @@ struct NewsDetailsView: View {
             }
             .toolbar(.hidden, for: .tabBar)
             .gvcoursesNavigationBar(
-                title: "Course News",
-                subtitle: news.title!.trunc(length: 30)
+                title: "Course News"
             ).navigationBarBackButtonHidden(true)
                 .toolbar(content: {
                     ToolbarItem (placement: .navigation)  {

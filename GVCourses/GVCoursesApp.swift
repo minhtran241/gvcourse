@@ -32,7 +32,7 @@ struct GVCoursesApp: App {
     var body: some Scene {
         WindowGroup {
             if !isSignIn {
-                SignInView()
+                SignInView().withErrorHandling()
             } else {
                 GVCoursesTabView()
                     .navigationBarHidden(true)

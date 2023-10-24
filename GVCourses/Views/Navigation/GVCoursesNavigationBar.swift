@@ -52,9 +52,10 @@ struct GVCoursesNavigationBar: ViewModifier {
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Sign Out") {
-                        AuthManager.shared.signout()
-                    }.foregroundStyle(.white)
+                    Button(action: AuthManager.shared.signout) {
+                        Image(systemName: "power")
+                            .foregroundStyle(.white)
+                    }
                 }
             }
             .foregroundStyle(self.foreground)

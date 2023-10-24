@@ -48,14 +48,15 @@ struct AuthManager {
         }
     }
     
-    func signInWithEmail(email: String, password: String) {
-        guard !email.trimmingCharacters(in: .whitespaces).isEmpty,
-              !password.trimmingCharacters(in: .whitespaces).isEmpty,
-              password.count >= 6 else {
-            return
-        }
+    func signInWithEmail(email: String, password: String, completion: @escaping (Error?) -> Void) {
+//        guard !email.trimmingCharacters(in: .whitespaces).isEmpty,
+//              !password.trimmingCharacters(in: .whitespaces).isEmpty,
+//              password.count >= 6 else {
+//            return
+//        }
         self.auth.signIn(withEmail: email, password: password) { (result, error) in
             guard result != nil, error == nil else {
+                completion(error)
                 return
             }
             print("SIGN IN")

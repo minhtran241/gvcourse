@@ -30,7 +30,7 @@ struct NewsCardView: View {
                     .minimumScaleFactor(0.5)
                 Text(news.createdAt!, style: .date)
                     .font(.subheadline)
-                    .foregroundColor(.brandSecondary)
+                    .foregroundColor(.gray)
             }
         }
     }
