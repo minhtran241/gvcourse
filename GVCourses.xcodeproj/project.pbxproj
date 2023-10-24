@@ -12,6 +12,9 @@
 		FA0274FE2AE76F0B008ECFBD /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0274FD2AE76F0B008ECFBD /* ErrorHandling.swift */; };
 		FA0275002AE76F21008ECFBD /* HandleErrorsByShowingAlertViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0274FF2AE76F21008ECFBD /* HandleErrorsByShowingAlertViewModifier.swift */; };
 		FA0275042AE77F6D008ECFBD /* TimeSinceCreated.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0275032AE77F6D008ECFBD /* TimeSinceCreated.swift */; };
+		FA0275062AE7FFC0008ECFBD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0275052AE7FFC0008ECFBD /* User.swift */; };
+		FA0275082AE8006A008ECFBD /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0275072AE8006A008ECFBD /* UserStore.swift */; };
+		FA02750A2AE80732008ECFBD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0275092AE80732008ECFBD /* SettingsView.swift */; };
 		FA17019C2AE5B06E00D51110 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FA17019B2AE5B06E00D51110 /* FirebaseAuth */; };
 		FA17019E2AE5B06E00D51110 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FA17019D2AE5B06E00D51110 /* FirebaseFirestore */; };
 		FA1701A22AE5B6CC00D51110 /* LoginHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1701A12AE5B6CC00D51110 /* LoginHeader.swift */; };
@@ -70,6 +73,9 @@
 		FA0274FD2AE76F0B008ECFBD /* ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 		FA0274FF2AE76F21008ECFBD /* HandleErrorsByShowingAlertViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleErrorsByShowingAlertViewModifier.swift; sourceTree = "<group>"; };
 		FA0275032AE77F6D008ECFBD /* TimeSinceCreated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSinceCreated.swift; sourceTree = "<group>"; };
+		FA0275052AE7FFC0008ECFBD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FA0275072AE8006A008ECFBD /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
+		FA0275092AE80732008ECFBD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FA1701A12AE5B6CC00D51110 /* LoginHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHeader.swift; sourceTree = "<group>"; };
 		FA1701A32AE5B75100D51110 /* GoogleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleButton.swift; sourceTree = "<group>"; };
 		FA1701A52AE5B7EC00D51110 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -179,6 +185,7 @@
 				FA1701A32AE5B75100D51110 /* GoogleButton.swift */,
 				FA1701A52AE5B7EC00D51110 /* CustomButton.swift */,
 				FA0274F52AE75D81008ECFBD /* LabelledDivider.swift */,
+				FA0275092AE80732008ECFBD /* SettingsView.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -196,6 +203,7 @@
 			children = (
 				FAF6F10B2ACA169E00F0F017 /* Course.swift */,
 				FAF6F10D2ACA204100F0F017 /* News.swift */,
+				FA0275052AE7FFC0008ECFBD /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -205,6 +213,7 @@
 			children = (
 				FAF6F1172ACA271900F0F017 /* NewsStore.swift */,
 				FAF61B242ACA564000357D1E /* CourseStore.swift */,
+				FA0275072AE8006A008ECFBD /* UserStore.swift */,
 			);
 			path = Stores;
 			sourceTree = "<group>";
@@ -486,10 +495,13 @@
 				FA2B65C12AD7822E00F43F77 /* SignInView.swift in Sources */,
 				FA1701B02AE5C5A300D51110 /* AuthManager.swift in Sources */,
 				FAF6F10C2ACA169E00F0F017 /* Course.swift in Sources */,
+				FA0275062AE7FFC0008ECFBD /* User.swift in Sources */,
 				FAF6F11A2ACA2A2F00F0F017 /* NewsCardView.swift in Sources */,
 				FAF6F0DE2ACA104400F0F017 /* GVCoursesApp.swift in Sources */,
 				FA0274FE2AE76F0B008ECFBD /* ErrorHandling.swift in Sources */,
+				FA02750A2AE80732008ECFBD /* SettingsView.swift in Sources */,
 				FAF6F10A2ACA10C600F0F017 /* CoursesListView.swift in Sources */,
+				FA0275082AE8006A008ECFBD /* UserStore.swift in Sources */,
 				FA1701A42AE5B75100D51110 /* GoogleButton.swift in Sources */,
 				FA0275042AE77F6D008ECFBD /* TimeSinceCreated.swift in Sources */,
 				FAF54A992ACB346000EF65F4 /* GVCoursesNavigationBar.swift in Sources */,

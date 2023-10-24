@@ -13,12 +13,14 @@ struct GVCoursesTabView: View {
     
     @StateObject var newsStore = NewsStore()
     @StateObject var courseStore = CourseStore()
+    @StateObject var userStore = UserStore()
     
     var body: some View {
         ZStack(alignment: .bottom) {
             TabView(selection: $selectedTab) {
                 NewsListView().environmentObject(newsStore).tag(0)
                 CoursesListView().environmentObject(courseStore).tag(1)
+                SettingsView().environmentObject(userStore).tag(2)
             }
             
             ZStack{
@@ -48,6 +50,7 @@ struct GVCoursesTabView: View {
 enum TabbedItems: Int, CaseIterable{
     case home = 0
     case courses
+    case settings
     
     var title: String{
         switch self {
@@ -55,7 +58,10 @@ enum TabbedItems: Int, CaseIterable{
             return "Home"
         case .courses:
             return "Courses"
+        case .settings:
+            return "Settings"
         }
+        
     }
     
     var iconName: String{
@@ -64,6 +70,8 @@ enum TabbedItems: Int, CaseIterable{
             return "house.fill"
         case .courses:
             return "book.fill"
+        case .settings:
+            return "person.fill"
         }
     }
 }

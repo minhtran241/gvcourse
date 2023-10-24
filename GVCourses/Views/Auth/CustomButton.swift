@@ -9,12 +9,13 @@ import Foundation
 import SwiftUI
 
 struct CustomButton: View {
+    var text: String
     var action: () -> Void
     
     var body: some View {
         Button(action: action) {
             HStack {
-                Text("Sign In")
+                Text(text)
                     .font(.body)
                     .fontWeight(.semibold)
                     .foregroundColor(.white) // Set text color to black
@@ -32,6 +33,6 @@ struct CustomButton: View {
 
 struct CustomButton_Previews: PreviewProvider {
     static var previews: some View {
-        CustomButton(action: {})
+        CustomButton(text: "Hello", action: {})
     }
 }

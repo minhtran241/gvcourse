@@ -32,7 +32,7 @@ struct SignInView: View {
                 .padding(.trailing, 24)
                 .padding(.bottom, 12)
                 
-                CustomButton {
+                CustomButton(text: "Sign In") {
                     AuthManager.shared.signInWithEmail(email: email, password: password) { error in
                         // TODO: Handle ERROR
                         self.errorHandling.handle(error: error!)
