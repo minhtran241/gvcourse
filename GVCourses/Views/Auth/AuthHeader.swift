@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LoginHeader: View {
+struct AuthHeader: View {
     var body: some View {
         VStack {
             Image("gvsu_marktop_blue")
@@ -19,8 +19,8 @@ struct LoginHeader: View {
     }
 }
 
-struct LoginHeader_Previews: PreviewProvider {
+struct AuthHeader_Previews: PreviewProvider {
     static var previews: some View {
-        LoginHeader()
+        AuthHeader()
     }
 }

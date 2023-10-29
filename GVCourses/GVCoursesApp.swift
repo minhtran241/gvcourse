@@ -27,12 +27,17 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct GVCoursesApp: App {
     @AppStorage("signIn") var isSignIn = false
+    @State private var showSignUpView = false
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
             if !isSignIn {
-                SignInView().withErrorHandling()
+                if !showSignUpView {
+                    SignInView(showSignUpView: $showSignUpView).withErrorHandling()
+                } else {
+                    SignUpView(isPresented: $showSignUpView).withErrorHandling()
+                }
             } else {
                 GVCoursesTabView()
                     .navigationBarHidden(true)

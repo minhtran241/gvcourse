@@ -29,8 +29,8 @@ class CourseStore: ObservableObject {
     var filteredCourses: [Course] {
         guard !searchText.isEmpty else { return courseList }
         return courseList.filter { c in
-            c.name!.lowercased().contains(searchText.lowercased())
-            || c.title!.lowercased().contains(searchText.lowercased())
+            c.name!.lowercased().starts(with:searchText.lowercased())
+            || c.title!.lowercased().starts(with: searchText.lowercased())
         }.sorted(by: { $0.createdAt! > $1.createdAt! } )
     }
     

@@ -57,7 +57,7 @@ enum TabbedItems: Int, CaseIterable{
         case .home:
             return "Home"
         case .courses:
-            return "Courses"
+            return "All courses"
         case .settings:
             return "Settings"
         }

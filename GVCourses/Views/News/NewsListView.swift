@@ -24,7 +24,7 @@ struct NewsListView: View {
             }
             .toolbar(.hidden, for: .tabBar)
             .gvcoursesNavigationBar(
-                title: Date.getCurrentDate()
+                title: "Home"
             )
             .listStyle(InsetListStyle())
             .padding(.bottom, 80)

@@ -22,7 +22,7 @@ class UserStore: ObservableObject {
             self.user = user
         }
     }
-
+    
     func deleteAndLogoutCurrentUser(completion: @escaping (Error?) -> Void) {
         deleteCurrentUser { deleteError in
             if let deleteError = deleteError {
@@ -30,7 +30,9 @@ class UserStore: ObservableObject {
                 completion(deleteError)
             } else {
                 // The user has been successfully deleted, now log them out
-                AuthManager.shared.signout()
+                AuthManager.shared.signOut() { error in
+                    self.errorHandling.handle(error: error)
+                }
             }
         }
     }
@@ -41,7 +43,7 @@ class UserStore: ObservableObject {
             completion(nil)
             return
         }
-
+        
         user.delete { error in
             if let error = error {
                 // An error occurred while deleting the user
@@ -59,7 +61,7 @@ class UserStore: ObservableObject {
             completion(nil)
             return
         }
-        let user = User(id: currUser.uid, email: currUser.email, providerID: currUser.providerID)
+        let user = User(id: currUser.uid, email: currUser.email, providerID: currUser.providerID, providerDataID: currUser.providerData[0].providerID)
         completion(user)
     }
 }

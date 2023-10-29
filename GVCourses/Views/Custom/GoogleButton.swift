@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct GoogleSiginBtn: View {
+    var text: String
     var action: () -> Void
     
     var body: some View {
@@ -17,7 +18,7 @@ struct GoogleSiginBtn: View {
                 Image("google") // Replace with your Google logo image
                     .resizable()
                     .frame(width: 24, height: 24)
-                Text("Sign in with Google")
+                Text(text)
                     .font(.body)
                     .fontWeight(.semibold)
                     .foregroundColor(.white) // Set text color to black
@@ -34,6 +35,6 @@ struct GoogleSiginBtn: View {
 
 struct GoogleSiginBtn_Previews: PreviewProvider {
     static var previews: some View {
-        GoogleSiginBtn(action: {})
+        GoogleSiginBtn(text: "Sign in with Google", action: {})
     }
 }

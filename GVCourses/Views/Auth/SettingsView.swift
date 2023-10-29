@@ -38,7 +38,17 @@ struct SettingsView: View {
                 .frame(maxWidth: .infinity)
                 
                 HStack {
-                    Text("**Provider ID:** \((store.user?.providerID)!)")
+                    Text("**Main provider:** \((store.user?.providerID)!)")
+                        .multilineTextAlignment(.leading)
+                        .font(.body)
+                        .foregroundColor(Color.primary.opacity(0.9))
+                        .padding(.bottom, 10)
+                    Spacer()
+                }.padding(.horizontal, 20)
+                .frame(maxWidth: .infinity)
+                
+                HStack {
+                    Text("**Authentication provider:** \((store.user?.providerDataID)!)")
                         .multilineTextAlignment(.leading)
                         .font(.body)
                         .foregroundColor(Color.primary.opacity(0.9))
@@ -49,7 +59,9 @@ struct SettingsView: View {
                 
                 CustomButton(text: "Logout") {
                     // Perform logout action here
-                    AuthManager.shared.signout()
+                    AuthManager.shared.signOut() { error in
+                        errorHandling.handle(error: error)
+                    }
                 }.padding(.bottom, 10)
                 
                 HStack {

@@ -10,21 +10,21 @@ import SwiftUI
 struct CoursesListView: View {
     
     @EnvironmentObject var store: CourseStore
-    @Environment(\.searchSuggestionsPlacement) var placement
+//    @Environment(\.searchSuggestionsPlacement) var placement
     
     var body: some View {
         NavigationStack {
             GVCoursesSearchBar(text: $store.searchText)
                 .padding(.top, 20)
-            if placement == .content {
-                ForEach(store.filteredSuggestions, id: \.self) { suggestion in
-                    Button {
-                        store.searchText = suggestion
-                    } label: {
-                        Label(suggestion, systemImage: "bookmark")
-                    }
-                }
-            }
+//            if placement == .content {
+//                ForEach(store.filteredSuggestions, id: \.self) { suggestion in
+//                    Button {
+//                        store.searchText = suggestion
+//                    } label: {
+//                        Label(suggestion, systemImage: "bookmark")
+//                    }
+//                }
+//            }
             List {
                 ForEach(store.filteredCourses) {c in
                     ZStack(alignment:.leading) {
@@ -38,7 +38,7 @@ struct CoursesListView: View {
             }
             .toolbar(.hidden, for: .tabBar)
             .gvcoursesNavigationBar(
-                title: Date.getCurrentDate()
+                title: "All courses"
             )
             .listStyle(InsetListStyle())
             .padding(.bottom, 80)

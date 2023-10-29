@@ -16,7 +16,7 @@ struct AuthManager {
     
     private init() {}
     
-    func signinWithGoogle(presenting: UIViewController,
+    func signInWithGoogle(presenting: UIViewController,
                           completion: @escaping (Error?) -> Void) {
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
         
@@ -49,11 +49,12 @@ struct AuthManager {
     }
     
     func signInWithEmail(email: String, password: String, completion: @escaping (Error?) -> Void) {
-//        guard !email.trimmingCharacters(in: .whitespaces).isEmpty,
-//              !password.trimmingCharacters(in: .whitespaces).isEmpty,
-//              password.count >= 6 else {
-//            return
-//        }
+        if !validateSignIn(email: email, password: password) {
+            let validationError = NSError(domain: "GVCourses", code: 1, userInfo: [NSLocalizedDescriptionKey: "Invalid email or password"])
+            completion(validationError)
+            return
+        }
+        
         self.auth.signIn(withEmail: email, password: password) { (result, error) in
             guard result != nil, error == nil else {
                 completion(error)
@@ -64,7 +65,36 @@ struct AuthManager {
         }
     }
     
-    func signout() {
+    func signUpWithEmail(email: String, password: String, password2: String, completion: @escaping (Error?) -> Void) {
+        // Check if email and password meet your validation criteria here if needed
+        if !validateSignUp(email: email, password: password, password2: password2) {
+            // You may want to return an error or call the completion handler with an error here.
+            let validationError = NSError(domain: "GVCourses", code: 1, userInfo: [NSLocalizedDescriptionKey: "Invalid email or password"])
+            completion(validationError)
+            return
+        }
+        
+        self.auth.createUser(withEmail: email, password: password) { (result, error) in
+            guard result != nil, error == nil else {
+                // Registration failed; call the completion handler with the error
+                completion(error)
+                return
+            }
+            
+            print("SIGN UP")
+            // You can also automatically sign in the user after successful registration if needed.
+            self.signInWithEmail(email: email, password: password) { (signInError) in
+                if let error = signInError {
+                    // Handle the sign-in error if needed
+                    completion(error)
+                    return
+                }
+            }
+        }
+    }
+    
+    
+    func signOut(completion: @escaping (Error) -> Void) {
         GIDSignIn.sharedInstance.signOut()
         do {
             try self.auth.signOut()
@@ -72,6 +102,27 @@ struct AuthManager {
             UserDefaults.standard.set(false, forKey: "signIn") // When this change to false, it will go to the sign in screen
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
+            let signingOutError = NSError(domain: "GVCourses", code: 1, userInfo: [NSLocalizedDescriptionKey: "Error signing out: \(signOutError.localizedDescription)"])
+            completion(signingOutError)
         }
+    }
+    
+    func validateSignUp(email: String, password: String, password2: String) -> Bool {
+        guard !email.trimmingCharacters(in: .whitespaces).isEmpty,
+              !password.trimmingCharacters(in: .whitespaces).isEmpty,
+              !password2.trimmingCharacters(in: .whitespaces).isEmpty,
+              password.count >= 6, password == password2 else {
+            return false
+        }
+        return true
+    }
+    
+    func validateSignIn(email: String, password: String) -> Bool {
+        guard !email.trimmingCharacters(in: .whitespaces).isEmpty,
+              !password.trimmingCharacters(in: .whitespaces).isEmpty,
+              password.count >= 6 else {
+            return false
+        }
+        return true
     }
 }

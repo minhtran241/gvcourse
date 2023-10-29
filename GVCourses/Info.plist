@@ -25,5 +25,11 @@
 	<string>$(CONTENTFUL_ENVIRONMENT_ID)</string>
 	<key>CONTENTFUL_SPACE_ID</key>
 	<string>$(CONTENTFUL_SPACE_ID)</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>processing</string>
+		<string>remote-notification</string>
+	</array>
 </dict>
 </plist>
