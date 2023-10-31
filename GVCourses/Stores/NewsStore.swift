@@ -20,9 +20,6 @@ class NewsStore: ObservableObject {
         self.db = Firestore.firestore()
         self.ref = self.db.collection("news")
         self.registerForFirebaseUpdates()
-        //        DispatchQueue.main.async {
-        //            self.refreshView()
-        //        }
     }
     
     func refreshView(){
@@ -69,7 +66,7 @@ class NewsStore: ObservableObject {
             DispatchQueue.main.async {
                 self.newsList = documents.compactMap { document in
                     return self.parseNewsDocument(document)
-                }
+                }.sorted(by: { $0.createdAt! > $1.createdAt! } )
             }
         }
     }

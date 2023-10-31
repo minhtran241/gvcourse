@@ -14,7 +14,7 @@ struct CoursesListView: View {
     
     var body: some View {
         NavigationStack {
-            GVCoursesSearchBar(text: $store.searchText)
+            GVCoursesSearchBar(text: $store.searchTerm)
                 .padding(.top, 20)
 //            if placement == .content {
 //                ForEach(store.filteredSuggestions, id: \.self) { suggestion in

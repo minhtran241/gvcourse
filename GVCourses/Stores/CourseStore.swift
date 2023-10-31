@@ -14,28 +14,23 @@ class CourseStore: ObservableObject {
     private var ref: CollectionReference?
     private var listener: ListenerRegistration?
     @Published var courseList: [Course] = []
-    @Published var searchText: String = ""
+    @Published var searchTerm: String = ""
     @EnvironmentObject var errorHandling: ErrorHandling
     
     init() {
         self.db = Firestore.firestore()
         self.ref = self.db.collection("courses")
         self.registerForFirebaseUpdates()
-        //        DispatchQueue.main.async {
-        //            self.refreshView()
-        //        }
     }
     
     var filteredCourses: [Course] {
-        guard !searchText.isEmpty else { return courseList }
-        return courseList.filter { c in
-            c.name!.lowercased().starts(with:searchText.lowercased())
-            || c.title!.lowercased().starts(with: searchText.lowercased())
-        }.sorted(by: { $0.createdAt! > $1.createdAt! } )
+        guard !searchTerm.isEmpty else { return courseList }
+        return courseList.filter { $0.name!.localizedCaseInsensitiveContains(searchTerm) 
+            || $0.title!.localizedCaseInsensitiveContains(searchTerm) }
     }
     
     var filteredSuggestions: [String] {
-        guard !searchText.isEmpty else { return [] }
+        guard !searchTerm.isEmpty else { return [] }
         let fc = self.filteredCourses
         var suggestions: [String] = []
         for i in 0...4 {
@@ -71,7 +66,7 @@ class CourseStore: ObservableObject {
             DispatchQueue.main.async {
                 self.courseList = documents.compactMap { document in
                     return self.parseCourseDocument(document)
-                }
+                }.sorted(by: { $0.name! > $1.name! } )
             }
         }
     }
