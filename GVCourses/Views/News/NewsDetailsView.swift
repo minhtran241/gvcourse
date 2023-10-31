@@ -82,7 +82,7 @@ struct NewsDetailsView: View {
             }
             .toolbar(.hidden, for: .tabBar)
             .gvcoursesNavigationBar(
-                title: "Course News"
+                title: "Course news"
             ).navigationBarBackButtonHidden(true)
                 .toolbar(content: {
                     ToolbarItem (placement: .navigation)  {

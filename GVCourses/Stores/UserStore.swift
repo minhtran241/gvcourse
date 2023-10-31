@@ -19,7 +19,10 @@ class UserStore: ObservableObject {
     
     func refreshView(){
         self.getCurrentUser { user in
-            self.user = user
+            // Update the @State variable on the main thread
+            DispatchQueue.main.async {
+                self.user = user
+            }
         }
     }
     

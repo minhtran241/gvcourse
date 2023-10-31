@@ -21,9 +21,9 @@ class CourseStore: ObservableObject {
         self.db = Firestore.firestore()
         self.ref = self.db.collection("courses")
         self.registerForFirebaseUpdates()
-//        DispatchQueue.main.async {
-//            self.refreshView()
-//        }
+        //        DispatchQueue.main.async {
+        //            self.refreshView()
+        //        }
     }
     
     var filteredCourses: [Course] {
@@ -67,8 +67,11 @@ class CourseStore: ObservableObject {
                 return
             }
             
-            self.courseList = documents.compactMap { document in
-                return self.parseCourseDocument(document)
+            // Update the @State variable on the main thread
+            DispatchQueue.main.async {
+                self.courseList = documents.compactMap { document in
+                    return self.parseCourseDocument(document)
+                }
             }
         }
     }

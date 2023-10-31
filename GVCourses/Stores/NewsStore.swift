@@ -20,9 +20,9 @@ class NewsStore: ObservableObject {
         self.db = Firestore.firestore()
         self.ref = self.db.collection("news")
         self.registerForFirebaseUpdates()
-//        DispatchQueue.main.async {
-//            self.refreshView()
-//        }
+        //        DispatchQueue.main.async {
+        //            self.refreshView()
+        //        }
     }
     
     func refreshView(){
@@ -56,7 +56,7 @@ class NewsStore: ObservableObject {
         
         return News(id: id, title: title, subtitle: subtitle, description: description, thumbnail: thumbnailURL, registerInstruction: registerInstruction, partnership: partnership, createdAt: createdAt.dateValue())
     }
-
+    
     private func registerForFirebaseUpdates() {
         self.listener = self.ref?.addSnapshotListener { [self] (snapshot, error) in
             guard let documents = snapshot?.documents else {
@@ -65,13 +65,15 @@ class NewsStore: ObservableObject {
                 return
             }
             
-            
-            self.newsList = documents.compactMap { document in
-                return self.parseNewsDocument(document)
+            // Update the @State variable on the main thread
+            DispatchQueue.main.async {
+                self.newsList = documents.compactMap { document in
+                    return self.parseNewsDocument(document)
+                }
             }
         }
     }
-
+    
     private func getAllNews(completion: @escaping ([News]?, Error?) -> Void) {
         self.ref?.getDocuments { (snapshot, error) in
             guard error == nil else {
@@ -86,6 +88,6 @@ class NewsStore: ObservableObject {
             completion(posts, nil)
         }
     }
-
+    
 }
 
