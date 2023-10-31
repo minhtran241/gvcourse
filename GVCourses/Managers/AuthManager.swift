@@ -1,5 +1,5 @@
 //
-//  FireAuth.swift
+//  AuthManager.swift
 //  GVCourses
 //
 //  Created by Minh Tran on 22/10/2023.
