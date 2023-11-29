@@ -1,139 +1,18 @@
 Now that your environment is set up, let's dive into building the GVCourse app. The following sections will guide you through the process with code snippets, explanations, and visual aids.
 
-# Section 1: Setting Up the Project
+# Setting Up the Project
 
-- Open Xcode and create a new SwiftUI project named "GVCourse.", please make sure to select "SwiftUI" as the user interface and "SwiftUI App" as the life cycle.
+- Open Xcode and create a new SwiftUI project named "GVCourse", please make sure to select "SwiftUI" as the user interface and "SwiftUI App" as the life cycle.
 
 - You can run the app by clicking the play button in the top left corner of Xcode's toolbar. If everything is set up correctly, you should see a blank screen with the text "Hello, world!".
 
-# Section 2: Basic knowledge of SwiftUI
-
-## 2.1. **HSack, VStack and ZStack:**
-
-Before we begin building the views, let's explore some common concepts in SwiftUI: HStack, VStack and ZStack.
-
-**HStack**: HStack is a view container that arranges its child views in a horizontal line
-
-```swift
-HStack {
-    Text(name).foregroundStyle(.black)
-    Text(title).foregroundStyle(.gray)
-}
-```
-
-As you can see in the code snippet above, we use HStack to arrange the course name and course title in a horizontal line. We can also group multiple views together using Group:
-
-```swift
-HStack {
-    Text(name).foregroundStyle(.black)
-    Group {
-        Text(title).foregroundStyle(.gray) +
-        Text("(\(credits))").foregroundColor(Color(.brandPrimary))
-    }
-}
-```
-
-**VStack**: VStack is a view container that arranges its child views in a vertical line
-
-```swift
-VStack(alignment: .leading, spacing: 5) {
-    Text(news.title!)
-    Text(news.createdAt!, style: .date)
-}
-```
-
-As you can see in the code snippet above, we use VStack to arrange the news title and news creation date in a vertical line.
-
-**ZStack**: ZStack is a view container that arranges its child views in a Z-axis, which means the views are stacked on top of each other.
-
-```swift
-ZStack {
- Image(uiImage: UIImage(data: news.image!)!)
-  .resizable()
-  .aspectRatio(contentMode: .fill)
-  .frame(width: 100, height: 100)
-  .cornerRadius(10)
- Text(news.title!)
-  .font(.title3)
-  .fontWeight(.bold)
-  .foregroundColor(.white)
-}
-```
-
-As you can see in the code snippet above, we use ZStack to stack the news image and news title on top of each other.
-
-We can also use one of the view containers inside another view container, for example, we can use VStack inside HStack:
-
-```swift
-HStack {
- VStack(alignment: .leading, spacing: 5) {
-  Text(news.title!)
-  Text(news.createdAt!, style: .date)
- }
- Spacer()
- Image(uiImage: UIImage(data: news.image!)!)
-  .resizable()
-  .aspectRatio(contentMode: .fill)
-  .frame(width: 100, height: 100)
-  .cornerRadius(10)
-}
-```
-
-Alright, now let's start building the views for GVCourse.
-
-## 2.2. **Styling in SwiftUI:**
-
-In SwiftUI, we can use modifiers to style the views. For example, we can use foregroundStyle to change the text color:
-
-```swift
-Text(name).foregroundStyle(.black)
-```
-
-We also can chain multiple modifiers together:
-
-```swift
-Text(title).foregroundStyle(.gray).font(.title3)
-```
-
-In order to know what modifiers are available for a view, we can use Xcode's code completion feature. For example, if we want to know what modifiers are available for Text view, we can type "Text." and Xcode will show a list of available modifiers:
-
-![Styling in SwiftUI](https://github.com/minhtran241/gvcourses/blob/main/screenshots/styling.png)
-
-## 2.3. **Property Wrappers:**
-
-In SwiftUI, we can use property wrappers to store the state of a view. There are many property wrappers available in SwiftUI, in this tutorial, we will use @State, @Binding, @EnvironmentObject and @Published. Let's explore when to use each property wrapper:
-
-**@State**: when your view needs to mutate one of its own properties.
-
-```swift
-@State var name: String = ""
-```
-
-**@Binding**: when your view needs to mutate a property owned by an ancestor view, or owned by an observable object that an ancestor has a reference to, you should use @Binding. For example, we can use @Binding to bind the state of a boolean to a variable:
-
-```swift
-@Binding var isBeingPresented: Bool
-```
-
-**@EnvironmentObject**: when it would be too cumbersome to pass an observable object through all the initializers of all your view’s ancestors. For example, we can use @EnvironmentObject to pass the CourseStore to all the views:
-
-```swift
-@EnvironmentObject var store: CourseStore
-```
-
-**@Published**: when you want to observe changes to a property of an observable object.
-
-```swift
-@Published var courseList: [Course] = []
-```
-
-# Section 3: Building the Views
+# Building the Views
 
 The views are responsible for displaying the app's content and handling user interactions. In this section, we will explore how to build the views for GVCourse. We will start with the Course component, which is responsible for displaying the course catalog.
 
-## 3.1. **Create views:**
+## Create views
 
-### 3.1.1. Create view for a single object showing in a list
+### Create view for a single object showing in a list
 
 Create a new SwiftUI file named [CourseRowView.swift](https://github.com/minhtran241/gvcourses/blob/main/GVCourses/Views/Courses/CourseRowView.swift) and add the following code, which defines the View for a single course row, we will use struct to define the view in SwiftUI because struct is immutable and it is easy to maintain the state of the view.
 
@@ -158,7 +37,11 @@ struct CourseRowView: View {
 }
 ```
 
-### 3.1.2. Create view for a list of objects
+As you can see in the code snippet above, we use HStack to arrange the course name and course title in a horizontal line. Here is the result:
+
+![CourseRowView](https://github.com/minhtran241/gvcourses/blob/main/screenshots/course_row_view.png)
+
+### Create view for a list of objects
 
 Create a new SwiftUI file named [CourseListView.swift](https://github.com/minhtran241/gvcourses/blob/main/GVCourses/Views/Courses/CourseListView.swift) and add the following code, which defines the View for the course list.
 
@@ -177,7 +60,7 @@ struct CoursesListView: View {
 }
 ```
 
-### 3.1.3. Create view for a single object showing in a detail view
+### Create view for a single object showing in a detail view
 
 Create a new SwiftUI file named "CourseDetailsView" and add the following code. This view will display the properties of a course. We will use ScrollView to make the view scrollable.
 
@@ -242,7 +125,11 @@ struct CourseDetailsView: View {
 }
 ```
 
-### 3.1.4. Custom view components
+Here is the result:
+
+![CourseDetailsView](https://github.com/minhtran241/gvcourses/blob/main/screenshots/course_details_view.png)
+
+### Custom view components (subviews)
 
 You may notice that we use a custom view called CustomTextBox in the code snippet above. Yes, we can create our own custom view in SwiftUI, all the custom views are defined in the [Custom](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Views/Custom) folder. Let's create a new SwiftUI file named [CustomTextBox.swift](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Views/Custom/CustomTextBox) and add the following code:
 
@@ -276,9 +163,13 @@ struct CustomTextBox: View {
 }
 ```
 
+With just a few lines of code, we have created a beautiful custom view. Here is the result:
+
+![CustomTextBox](https://github.com/minhtran241/gvcourses/blob/main/screenshots/custom_textbox_view.png)
+
 That's it, we have finished building the views for Course component. All the code for views is located in the [Views](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Views) folder. Now, let's explore how to build the model for the Course component.
 
-# Section 4: Building the Models
+# Building the Models
 
 In this app, the each model contains data object type of specific component. For example, the Course model contains data object type of Course component. In this section, we will explore how to build the models for GVCourse. We will start with the Course model. First, let's create a Models folder and a new Swift file named [Course.swift](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Models/Course.swift) inside the Models folder. Our Course model will have the following properties:
 
@@ -333,11 +224,11 @@ You may notice that we use Identifiable protocol in the code snippet above. Iden
 
 Basically, we define a Course struct with all the properties we need, and we define two initializers for the Course struct, one is the default initializer and the other one is the custom initializer. You can apply the same approach to build other models. All the code for models is located in the [Models](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Models)
 
-# Section 5: Interacting with Database
+# Interacting with Database
 
 In this section, we will explore how to interact with the database. We will use Firebase Firestore as the database for GVCourse. If you are not familiar with Firebase Firestore, you can check out the [official documentation](https://firebase.google.com/docs/firestore) to learn more about it. In SwiftUI, the way to connect with Firebase Firestore is the same as using normal Swift, so you can follow the [official documentation](https://firebase.google.com/docs/firestore/quickstart) to set up Firebase Firestore.
 
-## 5.1. **Implementing Store:**
+## Implementing stores
 
 The [Stores](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Stores) folder contains *ObservableObject* that can also be used globally as an *EnvironmentObject*. This is where we will implement the logic to fetch data from the database. First, let's create a new folder named "Stores" and a new Swift file named [CourseStore.swift](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Stores/CourseStore.swift) inside the [Stores](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Stores) folder. This class will provide methods to fetch data from the database. Add the following code to the file:
 
@@ -460,7 +351,7 @@ struct CoursesListView: View {
 
 That's it, we have finished implementing the *CourseStore* class. You can apply the same approach to implement the *NewsStore* class. All the code for stores is located in the [Stores](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Stores) folder.
 
-# Section 6: Authentication
+# Implementing authentication
 
 In this section, we will explore how to implement authentication functionalities in GVCourse. We will use Firebase Authentication to implement authentication. If you are not familiar with Firebase Authentication, you can check out the [official documentation](https://firebase.google.com/docs/auth) to learn more about it.
 
@@ -652,11 +543,17 @@ As you can see in the code snippet above, we use the *AuthManager* class to hand
 
 Simmilarly, we can use the *AuthManager* class to handle the authentication in the [SignUpView](https://github.com/minhtran241/gvcourses/blob/main/GVCourses/Views/Auth/SignUpView.swift) file. All the code for authentication is located in the [Views/Auth](https://github.com/minhtran241/gvcourses/blob/main/GVCourses/Views/Auth) folder.
 
+With just a few lines of code, we have created a beautiful sign in view. Here is the result:
+
+![SignInView](https://github.com/minhtran241/gvcourses/blob/main/screenshots/signin.png)
+
 That is our authenticaion implementation. Now, let's explore how to navigate between views.
 
-# Section 7: Navigating between Views
+# Navigating between Views
 
-In this section, we will explore how to navigate between views. First, let's create our tab bar view. Create a folder named [Navigation](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Views/Navigation) and a new Swift file named [GVCoursesTabView.swift](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Views/Navigation/GVCoursesTabView.swift) inside the [Navigation](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Views/Navigation) folder. We first need to create tabbed items:
+SwiftUI provides default navigation functionality and UI components, which makes it easy to navigate between views. However, in this tutorial, we will use a custom tab bar to navigate between views. I want to use a custom tab bar because it is more flexible and customizable, help us to learn more about SwiftUI.
+
+First, let's create our tab bar view. Create a folder named [Navigation](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Views/Navigation) and a new Swift file named [GVCoursesTabView.swift](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Views/Navigation/GVCoursesTabView.swift) inside the [Navigation](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Views/Navigation) folder. We first need to create tabbed items (Home, Courses, Settings) for our tab bar:
 
 ```swift
 import SwiftUI
@@ -790,9 +687,13 @@ struct GVCoursesApp: App {
 
 ```
 
+And here is the result of our beautiful custom tab bar:
+
+![GVCoursesTabView](https://github.com/minhtran241/gvcourses/blob/main/screenshots/tabbar.png)
+
 That's it, we have finished implementing the navigation between views! Now let's explore the search functionality.
 
-# Section 8: Implementing Search
+# Implementing search
 
 In this section, we will explore how to implement search functionality in GVCourse, so that users can search for courses they need easily. First, let's create a new folder named [Searching](https://github.com/minhtran241/gvcourses/blob/main/GVCourses/Views/Searching) and a new Swift file named [GVCoursesSearchBar.swift](https://github.com/minhtran241/gvcourses/blob/main/GVCourses/Views/Searching/GVCoursesSearchBar.swift) inside the [Searching](https://github.com/minhtran241/gvcourses/blob/main/GVCourses/Views/Searching) folder. This file contains the code for the search bar's UI. You can copy code from [here](https://github.com/minhtran241/gvcourses/blob/main/GVCourses/Views/Searching/GVCoursesSearchBar.swift)
 
