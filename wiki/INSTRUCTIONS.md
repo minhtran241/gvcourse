@@ -97,7 +97,7 @@ Text(title).foregroundStyle(.gray).font(.title3)
 
 In order to know what modifiers are available for a view, we can use Xcode's code completion feature. For example, if we want to know what modifiers are available for Text view, we can type "Text." and Xcode will show a list of available modifiers:
 
-![Screenshot 3](screenshots/screenshot3.png)
+![Styling in SwiftUI](https://github.com/minhtran241/gvcourses/blob/main/screenshots/styling.png)
 
 ## 2.3. **Property Wrappers:**
 
@@ -129,13 +129,13 @@ In SwiftUI, we can use property wrappers to store the state of a view. There are
 
 # Section 3: Building the Views
 
-GVCourse uses MVC architecture to organize the app's components. The views are responsible for displaying the app's content and handling user interactions.
+The views are responsible for displaying the app's content and handling user interactions. In this section, we will explore how to build the views for GVCourse. We will start with the Course component, which is responsible for displaying the course catalog.
 
 ## 3.1. **Create views:**
 
 ### 3.1.1. Create view for a single object showing in a list
 
-Create a new SwiftUI file named "CourseRowView.swift" and add the following code, which defines the View for a single course row, we will use struct to define the view in SwiftUI because struct is immutable and it is easy to maintain the state of the view.
+Create a new SwiftUI file named [CourseRowView.swift](https://github.com/minhtran241/gvcourses/blob/main/GVCourses/Views/Courses/CourseRowView.swift) and add the following code, which defines the View for a single course row, we will use struct to define the view in SwiftUI because struct is immutable and it is easy to maintain the state of the view.
 
 ```swift
 import SwiftUI
@@ -160,7 +160,7 @@ struct CourseRowView: View {
 
 ### 3.1.2. Create view for a list of objects
 
-Create a new SwiftUI file named "CourseListView.swift" and add the following code, which defines the View for the course list.
+Create a new SwiftUI file named [CourseListView.swift](https://github.com/minhtran241/gvcourses/blob/main/GVCourses/Views/Courses/CourseListView.swift) and add the following code, which defines the View for the course list.
 
 ```swift
 struct CoursesListView: View {
@@ -244,7 +244,7 @@ struct CourseDetailsView: View {
 
 ### 3.1.4. Custom view components
 
-You may notice that we use a custom view called CustomTextBox in the code snippet above. Yes, we can create our own custom view in SwiftUI, all the custom views are defined in the [Custom](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Views/Custom) folder. Let's create a new SwiftUI file named "CustomTextBox.swift" and add the following code:
+You may notice that we use a custom view called CustomTextBox in the code snippet above. Yes, we can create our own custom view in SwiftUI, all the custom views are defined in the [Custom](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Views/Custom) folder. Let's create a new SwiftUI file named [CustomTextBox.swift](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Views/Custom/CustomTextBox) and add the following code:
 
 ```swift
 struct CustomTextBox: View {
@@ -276,13 +276,11 @@ struct CustomTextBox: View {
 }
 ```
 
-That's it, we have finished building the views for Course component. All the code for Course component is located in the [Course](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Views/Courses) folder. The same approach can be applied to build the views for news component, all the code for News component is located in the [News](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Views/News) folder. You now should have a good understanding of how to build views in SwiftUI.
+That's it, we have finished building the views for Course component. All the code for views is located in the [Views](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Views) folder. Now, let's explore how to build the model for the Course component.
 
 # Section 4: Building the Models
 
-The models are responsible for storing the app's data and providing methods to access the data.
-
-Create a Models folder and a new Swift file named "Course.swift" inside the Models folder. Our Course model will have the following properties:
+In this app, the each model contains data object type of specific component. For example, the Course model contains data object type of Course component. In this section, we will explore how to build the models for GVCourse. We will start with the Course model. First, let's create a Models folder and a new Swift file named [Course.swift](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Models/Course.swift) inside the Models folder. Our Course model will have the following properties:
 
 ```swift
 struct Course: Identifiable {
@@ -341,7 +339,7 @@ In this section, we will explore how to interact with the database. We will use 
 
 ## 5.1. **Implementing Store:**
 
-In order to interact with the database, we need to implement a Store classes. We can start with the CourseStore class, create a new folder named "Stores" and a new Swift file named "CourseStore.swift" inside the Stores folder. Add the following code to the file:
+The [Stores](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Stores) folder contains *ObservableObject* that can also be used globally as an *EnvironmentObject*. This is where we will implement the logic to fetch data from the database. First, let's create a new folder named "Stores" and a new Swift file named [CourseStore.swift](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Stores/CourseStore.swift) inside the [Stores](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Stores) folder. This class will provide methods to fetch data from the database. Add the following code to the file:
 
 ```swift
 import SwiftUI
@@ -381,7 +379,7 @@ private func registerForFirebaseUpdates() {
     }
 ```
 
-After getting records from the database, we need to parse the records to the Course model:
+After getting records from the database, we need to parse the records to the *Course* model:
 
 ```swift
 func parseCourseDocument(_ document: QueryDocumentSnapshot) -> Course? {
@@ -409,43 +407,41 @@ func parseCourseDocument(_ document: QueryDocumentSnapshot) -> Course? {
     }
 ```
 
-Now, let's add some methods to the CourseStore class:
+Now, let's add some methods to the *CourseStore* class:
 
 ```swift
  // Refresh the view when the view appears
-    func refreshView(){
-        self.courseList.removeAll()
-        self.getAllCourses { courses, error in
-            if let error = error {
-               // handle error
-    return
-            }
-            self.courseList.append(contentsOf: courses!)
-        }
+func refreshView(){
+    self.courseList.removeAll()
+    self.getAllCourses { courses, error in
+        if let error = error {
+            // handle error
+      return
+     }
+        self.courseList.append(contentsOf: courses!)
     }
+}
     
  // Get all courses from the database 
-    private func getAllCourses(completion: @escaping ([Course]?, Error?) -> Void) {
-        self.ref?.getDocuments { (snapshot, error) in
-            guard error == nil else {
-                completion(nil, error)
-                return
-            }
-            
-            let posts: [Course] = snapshot?.documents.compactMap { document in
-                return self.parseCourseDocument(document)
-            } ?? []
-            
-            completion(posts, nil)
+private func getAllCourses(completion: @escaping ([Course]?, Error?) -> Void) {
+    self.ref?.getDocuments { (snapshot, error) in
+        guard error == nil else {
+            completion(nil, error)
+            return
         }
+            
+        let posts: [Course] = snapshot?.documents.compactMap { document in
+            return self.parseCourseDocument(document)
+        } ?? []
+            
+        completion(posts, nil)
     }
-    
 }
 ```
 
-This class is responsible for fetching the data from the database and storing the data in the courseList property. We use @Published property wrapper to make the courseList property observable, which means whenever the courseList property is updated, the view will be updated automatically.
+We use *@Published* property wrapper to make the courseList property observable, which means whenever the courseList property is updated, the view will be updated automatically.
 
-Now, in the CourseListView, we can use the CourseStore to fetch the data from the database and display the data in the view. Let's open the CourseListView.swift file and add the following code:
+Now, in the CourseListView, we can use the *CourseStore* to fetch the data from the database and display the data in the view. Let's open the [CourseListView.swift](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Views/Courses/CourseListView.swift) file and add the following code:
 
 ```swift
 struct CoursesListView: View {
@@ -462,13 +458,13 @@ struct CoursesListView: View {
 }
 ```
 
-That's it, we have finished implementing the CourseStore class. You can apply the same approach to implement the NewsStore class. All the code for stores is located in the [Stores](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Stores) folder.
+That's it, we have finished implementing the *CourseStore* class. You can apply the same approach to implement the *NewsStore* class. All the code for stores is located in the [Stores](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Stores) folder.
 
-# Section 6: Authentication and Authorization
+# Section 6: Authentication
 
-In this section, we will explore how to implement authentication and authorization in GVCourse. We will use Firebase Authentication to implement authentication and authorization. If you are not familiar with Firebase Authentication, you can check out the [official documentation](https://firebase.google.com/docs/auth) to learn more about it.
+In this section, we will explore how to implement authentication functionalities in GVCourse. We will use Firebase Authentication to implement authentication. If you are not familiar with Firebase Authentication, you can check out the [official documentation](https://firebase.google.com/docs/auth) to learn more about it.
 
-First, let's create a new folder named "Managers" and a new Swift file named "AuthManager.swift" inside the Managers folder. This class will provide methods to handle authentication and authorization. Add the following code to the file:
+First, let's create a new folder named [Managers](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Managers) and a new Swift file named [AuthManager.swift](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Managers/AuthManager.swift) inside the [Managers](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Managers) folder. This class will provide methods to handle authentication. Add the following code to the file:
 
 ```swift
 struct AuthManager {
@@ -589,14 +585,14 @@ struct AuthManager {
 
 I will explain the code snippet above in the following sections:
 
-- The init() method is the initializer of the AuthManager class, we use this method to initialize the Firebase Authentication.
-- The signInWithGoogle() method is used to sign in with Google.
-- The signInWithEmail() method is used to sign in with email and password.
-- The signUpWithEmail() method is used to sign up with email and password.
-- The signOut() method is used to sign out.
-- The validateSignUp() method is used to validate the sign up form.
+- The **init()** method is the initializer of the *AuthManager* class, we use this method to initialize the Firebase Authentication.
+- The **signInWithGoogle()** method is used to sign in with Google.
+- The **signInWithEmail()** method is used to sign in with email and password.
+- The **signUpWithEmail()** method is used to sign up with email and password.
+- The **signOut()** method is used to sign out.
+- The **validateSignUp()** method is used to validate the sign up form.
 
-Now, let's open the SignInView.swift file and add the following code:
+Now, let's build the views for authentication. First, create a file named [SignInView.swift](https://github.com/minhtran241/gvcourses/blob/main/GVCourses/Views/Auth/SignInView.swift) and add the following code:
 
 ```swift
 import SwiftUI
@@ -652,15 +648,15 @@ struct SignInView: View {
 }
 ```
 
-As you can see in the code snippet above, we use the AuthManager class to handle the authentication and authorization. We use the signInWithEmail() method to sign in with email and password, and we use the signInWithGoogle() method to sign in with Google. We also use the signOut() method to sign out.
+As you can see in the code snippet above, we use the *AuthManager* class to handle the authentication. We use the **signInWithEmail()** method to sign in with email and password, and we use the **signInWithGoogle(**) method to sign in with Google. We also use the **signOut()** method to sign out.
 
-Simmilarly, we can use the AuthManager class to handle the authentication and authorization in the [SignUpView](https://github.com/minhtran241/gvcourses/blob/main/GVCourses/Views/Auth/SignUpView.swift) file.
+Simmilarly, we can use the *AuthManager* class to handle the authentication in the [SignUpView](https://github.com/minhtran241/gvcourses/blob/main/GVCourses/Views/Auth/SignUpView.swift) file. All the code for authentication is located in the [Views/Auth](https://github.com/minhtran241/gvcourses/blob/main/GVCourses/Views/Auth) folder.
 
-That is our Authenticaion and Authorization implementation. Now, let's explore how to navigate between views.
+That is our authenticaion implementation. Now, let's explore how to navigate between views.
 
 # Section 7: Navigating between Views
 
-In this section, we will explore how to navigate between views. First, let's create our tab bar view. Create a folder named "Navigation" and a new Swift file named "GVCoursesTabView.swift" inside the Navigation folder. We first need to create tabbed items:
+In this section, we will explore how to navigate between views. First, let's create our tab bar view. Create a folder named [Navigation](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Views/Navigation) and a new Swift file named [GVCoursesTabView.swift](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Views/Navigation/GVCoursesTabView.swift) inside the [Navigation](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Views/Navigation) folder. We first need to create tabbed items:
 
 ```swift
 import SwiftUI
@@ -739,7 +735,7 @@ struct GVCoursesTabView: View {
 }
 ```
 
-As you can see in the code snippet above, we use TabView to create the tab bar view. We also use CustomTabItem to create the tab bar item. Now, let's add the code for out CustomTabItem:
+As you can see in the code snippet above, we use *TabView* to create the tab bar view. We also use CustomTabItem to create the tab bar item. Now, let's add the code for out *CustomTabItem*:
 
 ```swift
 extension GVCoursesTabView {
@@ -765,7 +761,7 @@ extension GVCoursesTabView {
 }
 ```
 
-Now, inside the GVCoursesApp.swift file, we can use the GVCoursesTabView as the root view if the user is signed in:
+Now, inside the [GVCoursesApp.swift](https://github.com/minhtran241/gvcourses/blob/main/GVCourses/GVCoursesApp.swift) file, we can use the *GVCoursesTabView* as the root view if the user is signed in:
 
 ```swift
 @main
@@ -798,9 +794,9 @@ That's it, we have finished implementing the navigation between views! Now let's
 
 # Section 8: Implementing Search
 
-In this section, we will explore how to implement search functionality in GVCourse, so that users can search for courses they need easily. First, let's create a new folder named "Searching" and a new Swift file named "GVCoursesSearchBar.swift" inside the Searching folder. This file contains the code for the search bar's UI. You can copy code from [here](https://github.com/minhtran241/gvcourses/blob/main/GVCourses/Views/Searching/GVCoursesSearchBar.swift)
+In this section, we will explore how to implement search functionality in GVCourse, so that users can search for courses they need easily. First, let's create a new folder named [Searching](https://github.com/minhtran241/gvcourses/blob/main/GVCourses/Views/Searching) and a new Swift file named [GVCoursesSearchBar.swift](https://github.com/minhtran241/gvcourses/blob/main/GVCourses/Views/Searching/GVCoursesSearchBar.swift) inside the [Searching](https://github.com/minhtran241/gvcourses/blob/main/GVCourses/Views/Searching) folder. This file contains the code for the search bar's UI. You can copy code from [here](https://github.com/minhtran241/gvcourses/blob/main/GVCourses/Views/Searching/GVCoursesSearchBar.swift)
 
-Next, we need to implement the search functionality. Let's open the CourseStore.swift file and add two more properties to the CourseStore class:
+Next, we need to implement the search functionality. Let's open the CourseStore.swift file and add two more properties to the *CourseStore* class:
 
 ```swift
 @Published var searchTerm: String = ""
@@ -814,7 +810,7 @@ var filteredCourses: [Course] {
 
 As you can see in the code snippet above, we use the searchTerm property to store the search term, and we use the filteredCourses property to store the filtered courses.
 
-Now, let's open the CoursesListView.swift file and replace the fake data with the following code:
+Now, let's open the [CoursesListView.swift](https://github.com/minhtran241/gvcourses/blob/main/GVCourses/Views/Courses/CoursesListView.swift) file and replace the fake data with the following code:
 
 ```swift
 @EnvironmentObject var store: CourseStore
@@ -836,6 +832,4 @@ List {
 }
 ```
 
-Here is the folder structure of the project, you can take a look at the code if you need more details:
-
-![Screenshot 4](screenshots/screenshot4.png)
+That is the overall instruction for implementing the GVCourse app using SwiftUI. You can check out the full source code [here](https://github.com/minhtran241/gvcourses). I hope you find this tutorial helpful. If you have any questions, please feel free to contact me at [my email](mailto:tranmq@mail.gvsu.edu).

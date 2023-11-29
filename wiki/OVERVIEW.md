@@ -6,7 +6,7 @@ The motivation behind developing the GVCourse application stems from the observa
 
 # Why GVCourse is a Great Example of a SwiftUI App?
 
-GVCourse not only presents an extensive catalog of new and existing courses offered by Grand Valley State University (GVSU) but also serves as a hub for course news and announcements. The application goes beyond by incorporating robust authentication and authorization features, allowing users to create accounts and log in using third-party authentication services like Google. When crafted with SwiftUI, these components exemplify the framework's capability to seamlessly create a cross-platform app with a native look and feel.
+GVCourse not only presents an extensive catalog of new and existing courses offered by Grand Valley State University (GVSU) but also serves as a hub for course news and announcements. The application goes beyond by incorporating robust authentication features, allowing users to create accounts and log in using third-party authentication services like Google. When crafted with SwiftUI, these components exemplify the framework's capability to seamlessly create a cross-platform app with a native look and feel.
 
 This tutorial explores how SwiftUI's declarative UI, seamless data binding, and integrative features come together to elevate the user experience. Through the inclusion of screenshots and video clips, the tutorial vividly demonstrates GVCourse' functionality, showcasing SwiftUI's prowess in the development of practical and user-centric applications.
 
@@ -20,30 +20,33 @@ The course catalog is the central feature of the GVCourse application. It provid
 
 Every information relating to course (new courses, course changes, etc.) is displayed in the course news and announcements section. The course news and announcements section is updated in real-time, ensuring that users are always up to date with the latest information. Users can read the full article by tapping on the card. Here is also the place to present posters for new courses.
 
-## Authentication and Authorization
+## Authentication
 
-The authentication and authorization feature allows users to create accounts and log in using third-party authentication services like Google. Users can also log out of their accounts.
+The authentication feature allows users to create accounts and log in using third-party authentication services like Google. Users can also log out of their accounts.
 
 # GVCourse App Screenshots
 
-## Authentication and Authorization
+## Authentication
 
-![Sign In](https://github.com/minhtran241/gvcourses/tree/main/screenshots/signin.png)
-![Sign Up](https://github.com/minhtran241/gvcourses/tree/main/screenshots/signup.png)
+Sign In | Sign Up
+--- | ---
+![Sign In](https://github.com/minhtran241/gvcourses/blob/main/screenshots/signin.png) | ![Sign Up](https://github.com/minhtran241/gvcourses/blob/main/screenshots/signup.png)
 
 ## Course News and Announcements
 
-![News List](https://github.com/minhtran241/gvcourses/tree/main/screenshots/news_list.png)
-![News Details](https://github.com/minhtran241/gvcourses/tree/main/screenshots/news_details.png)
+News List | News Details
+--- | ---
+![News List](https://github.com/minhtran241/gvcourses/blob/main/screenshots/news_list.png) | ![News Details](https://github.com/minhtran241/gvcourses/blob/main/screenshots/news_details.png)
 
 ## Course Catalog
 
-![Courses List](https://github.com/minhtran241/gvcourses/tree/main/screenshots/courses_list.png)
-![Course Details](https://github.com/minhtran241/gvcourses/tree/main/screenshots/course_details.png)
+Courses List | Course Details
+--- | ---
+![Courses List](https://github.com/minhtran241/gvcourses/blob/main/screenshots/courses_list.png) | ![Course Details](https://github.com/minhtran241/gvcourses/blob/main/screenshots/course_details.png)
 
 # Settings
 
-![Settings](https://github.com/minhtran241/gvcourses/tree/main/screenshots/settings.png)
+![Settings](https://github.com/minhtran241/gvcourses/blob/main/screenshots/settings.png)
 
 **Demo Video:**
 [Link to Demo Video]
