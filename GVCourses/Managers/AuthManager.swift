@@ -19,7 +19,6 @@ struct AuthManager {
     func signInWithGoogle(presenting: UIViewController,
                           completion: @escaping (Error?) -> Void) {
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
-        
         // Create Google Sign In configuration object.
         let config = GIDConfiguration(clientID: clientID)
         

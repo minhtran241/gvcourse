@@ -10,21 +10,11 @@ import SwiftUI
 struct CoursesListView: View {
     
     @EnvironmentObject var store: CourseStore
-//    @Environment(\.searchSuggestionsPlacement) var placement
     
     var body: some View {
         NavigationStack {
             GVCoursesSearchBar(text: $store.searchTerm)
                 .padding(.top, 20)
-//            if placement == .content {
-//                ForEach(store.filteredSuggestions, id: \.self) { suggestion in
-//                    Button {
-//                        store.searchText = suggestion
-//                    } label: {
-//                        Label(suggestion, systemImage: "bookmark")
-//                    }
-//                }
-//            }
             List {
                 ForEach(store.filteredCourses) {c in
                     ZStack(alignment:.leading) {
@@ -46,7 +36,6 @@ struct CoursesListView: View {
         }.refreshable {
             store.refreshView()
         }
-//        .onAppear(perform: {store.refreshView()})
     }
 }
 
