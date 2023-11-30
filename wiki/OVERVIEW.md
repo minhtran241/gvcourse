@@ -1,24 +1,24 @@
 <p align="center">
-  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/swiftui_icon.png" alt="SwiftUI">
+  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/swiftui.png" alt="SwiftUI">
 </p>
 
-Welcome to the SwiftUI tutorial! In this guide, we'll dive into the world of SwiftUI, Apple's modern UI framework, as we embark on the journey to build a comprehensive application—GVCourse. This app will serve as a centralized hub for exploring all the courses and information offered by Grand Valley State University. SwiftUI's declarative syntax empowers developers to craft sophisticated and visually appealing user interfaces with significantly less boilerplate code, fostering a more user-friendly and efficient approach to UI creation. This tutorial will provide hands-on experience with SwiftUI's cross-platform capabilities and native integration. Throughout the tutorial, we'll leverage SwiftUI's powerful features such as declarative UI, data binding, and seamless integration to bring the GVCourse app to life. Screenshots and video clips will be seamlessly integrated to enhance your understanding of the app's functionality, making this tutorial an immersive learning experience.
+Welcome to the SwiftUI tutorial! In this guide, we'll dive into the world of SwiftUI, Apple's modern UI framework, as we embark on the journey to build a comprehensive application—GVCourse.
 
-# Introducing GVCourse: A Comprehensive Platform for GVSU Course Information and Announcements
+# What is SwiftUI?
 
-The motivation behind developing the GVCourse application stems from the observation that, at Grand Valley State University school of Computing, the dissemination of information about new courses often relies on social platforms like Discord or email. While these methods are effective, occasional oversight occurs as Discord messages may go unnoticed, and a barrage of emails can lead to missed announcements. In response, GVCourse offers a streamlined solution, providing users with a centralized platform to access information about both new and existing courses.
+SwiftUI is a declarative UI framework built with the Swift programming language. While SwiftUI is a relatively new framework, it is built on top of Swift, which has been around for a while. If you are new to Swift, consider going through the [official Swift tutorials](https://developer.apple.com/tutorials/swiftui) to get familiar with the basics.
 
-# Why GVCourse is a Great Example of a SwiftUI App?
+# Why SwiftUI?
 
-GVCourse not only presents an extensive catalog of new and existing courses offered by Grand Valley State University (GVSU) but also serves as a hub for course news and announcements. The application goes beyond by incorporating robust authentication features, allowing users to create accounts and log in using third-party authentication services like Google. When crafted with SwiftUI, these components exemplify the framework's capability to seamlessly create a cross-platform app with a native look and feel.
+SwiftUI is a powerful framework that allows developers to build sophisticated and visually appealing user interfaces with significantly less boilerplate code. SwiftUI's declarative syntax empowers developers to focus on the *what* rather than the *how* of UI creation, fostering a more user-friendly and efficient approach to UI development. SwiftUI also offers a wide range of features such as data binding, seamless integration, and cross-platform capabilities that make it a great choice for building modern applications. From my experience with other UI frameworks, I find SwiftUI to be quite intuitive and easy to use. I hope that you will find it to be the same.
 
-This tutorial explores how SwiftUI's declarative UI, seamless data binding, and integrative features come together to elevate the user experience. Through the inclusion of screenshots and video clips, the tutorial vividly demonstrates GVCourse' functionality, showcasing SwiftUI's prowess in the development of practical and user-centric applications.
+# GVCourse App
 
-# GVCourse App Features
+GVCourse serves as a centralized hub for exploring all the courses and information offered by Grand Valley State University. The motivation behind developing the GVCourse application stems from the observation that, at Grand Valley State University school of Computing, the dissemination of information about new courses often relies on social platforms like Discord or email. While these methods are effective, occasional oversight occurs as Discord messages may go unnoticed, and a barrage of emails can lead to missed announcements. In response, GVCourse offers a streamlined solution, providing users with a centralized platform to access information about both new and existing courses.
 
-## Course Catalog
+## Course Catalog with Search and Filter
 
-The course catalog is the central feature of the GVCourse application. It provides users with a comprehensive list of courses offered by Grand Valley State University. Each course is represented by a card that displays the course name, description, and other relevant information. The course catalog also allows users to search for its properties. Users can also view all information about a course by tapping on its card.
+The course catalog is a list of courses offered by Grand Valley State University that users can search and filter. When users type in the search bar, the list is updated in real-time to display courses that match the search query. User can explore details about a course by tapping on the card.
 
 ## Course News and Announcements
 
@@ -48,7 +48,7 @@ Courses List | Course Details
 --- | ---
 ![Courses List](https://github.com/minhtran241/gvcourses/blob/main/screenshots/courses_list.png) | ![Course Details](https://github.com/minhtran241/gvcourses/blob/main/screenshots/course_details.png)
 
-# Settings
+## Settings
 
 <!-- ![Settings](https://github.com/minhtran241/gvcourses/blob/main/screenshots/settings.png) -->
 <p align="center">
@@ -57,3 +57,9 @@ Courses List | Course Details
 
 **Demo Video:**
 [Link to Demo Video]
+
+# Why GVCourse is a Great Example of a SwiftUI App?
+
+GVCourse utilizes many of SwiftUI's features to create a seamless user experience. For example, the course catalog is a list of courses that users can search and filter. SwiftUI's data binding feature allows us to update the list in real-time as users type in the search bar. SwiftUI also offers a wide range of UI components that we can use to build the GVCourse app. For example, we can use the `List` component to display the course catalog.
+
+Throughout the tutorial, we'll leverage SwiftUI's powerful features such as declarative UI, data binding, and seamless integration to bring the GVCourse app to life. Screenshots and code snippets will be seamlessly integrated to enhance your understanding of the app's functionality, making this tutorial an immersive learning experience.

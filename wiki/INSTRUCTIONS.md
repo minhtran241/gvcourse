@@ -4,37 +4,13 @@ Now that your environment is set up, let's take a look at SwiftUI's basic concep
 
 SwiftUI is a declarative UI framework built with the Swift programming language. While SwiftUI is a relatively new framework, it is built on top of Swift, which has been around for a while. If you are new to Swift, consider going through the [official Swift tutorials](https://developer.apple.com/tutorials/swiftui) to get familiar with the basics.
 
-# Basic Concepts
-
-## Declarative UI
-
-SwiftUI is a declarative UI framework, which means you can declare what your UI should do. For example, you can declare that your UI should display a text:
-
-```swift
-Text("Hello, world!")
-```
-
-## Preview
-
-SwiftUI provides a preview feature that allows you to preview your UI in real-time. To preview your UI, open the file that contains your UI code and by default, Xcode will show the preview on the right side of the screen. You can also show the preview on the bottom of the screen by short cut **Command + Option + Enter**. For example, here is the preview code for the search bar:
-
-```swift
-#Preview {
-    GVCoursesSearchBar(text: .constant(""))
-}
-```
-
-<p>
-   <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/preview.png" alt="Preview" width="750" height="450">
-</p>
-
-![Preview]()
-
 ## Main components
 
-SwiftUI is built with three main components: **Views**, **Modifiers** and **State**.
+There are three main components in SwiftUI:  **Views**, **Modifiers** and **Data flow**. Let's explore each component in more detail.
 
 ### Views
+
+Views layout in SwiftUI is based on a tree of view components. Each view component is responsible for displaying a part of the UI.
 
 #### View protocol
 
@@ -53,7 +29,7 @@ struct CourseRowView: View {
 
 #### HSack, VStack and ZStack
 
-One of the mose common concepts in SwiftUI is HStack, VStack and ZStack. So let's explore them in more detail.
+One of the most common concepts in SwiftUI is HStack, VStack and ZStack. So let's explore them in more detail.
 
 **HStack**: HStack is a view container that arranges its child views in a horizontal line
 
@@ -124,8 +100,6 @@ HStack {
 
 ### Modifiers
 
-#### View modifiers
-
 In SwiftUI, we can use modifiers to style the views. For example, we can use *foregroundStyle* to change the text color:
 
 ```swift
@@ -142,9 +116,27 @@ In order to know what modifiers are available for a view, we can use Xcode's cod
 
 ![Styling in SwiftUI](https://github.com/minhtran241/gvcourses/blob/main/screenshots/styling.png)
 
-### State
+### Data flow
 
-In SwiftUI, we can use state to store the state of a view. The concept of state in SwiftUI is quite similar to the concept of state in React. For example, we can use *@State* to store the state of a text field:
+The data flow in SwiftUI is unidirectional, which means the data flows from the parent view to the child view. The parent view is responsible for passing the data to the child view. For example, the following code snippet defines a view tree with a root view and two child views:
+
+```swift
+struct CourseRowView: View {
+ @State var name: String = ""
+ @State var title: String = ""
+ 
+ var body: some View {
+  VStack(alignment: .leading, spacing: 5) {
+   Text(name).foregroundStyle(.black)
+   Text(title).foregroundStyle(.gray)
+  }
+ }
+}
+```
+
+As you can see in the code snippet above, we use VStack to group two Text views together. The VStack is the parent view and the two Text views are the child views. The VStack is responsible for arranging the two Text views in a vertical line. The VStack is also responsible for passing the data to the child views.
+
+We can use state to store the state of a view. The concept of state in SwiftUI is quite similar to the concept of state in React. For example, we can use *@State* to store the state of a text field:
 
 ```Swift
 @State var name: String = ""
@@ -152,7 +144,7 @@ In SwiftUI, we can use state to store the state of a view. The concept of state 
 
 #### Property wrappers
 
-In SwiftUI, we can use property wrappers to store the state of a view. There are many property wrappers available in SwiftUI, in this tutorial, we will use *@State*, *@Binding*, *@EnvironmentObject* and *@Published*. Let's explore when to use each property wrapper:
+In SwiftUI, we can use property wrappers to store the state of a view. There are many property wrappers available in SwiftUI, in this tutorial, we will use *@State*, *@Binding*, *@EnvironmentObject* and *@Published* and they are also the most essential property wrappers in SwiftUI. Let's explore when to use each property wrapper:
 
 **@State**: when your view needs to mutate one of its own properties.
 
@@ -177,6 +169,8 @@ In SwiftUI, we can use property wrappers to store the state of a view. There are
 ```swift
 @Published var courseList: [Course] = []
 ```
+
+Following the undirectional data flow, SwiftUI can maintain clear and consistent data flow throughout the app. I think this is one of the most important concepts in SwiftUI, so make sure you understand it well.
 
 That's it for all the basic concepts in SwiftUI that we will use in this tutorial to build the GVCourse app. If you want to learn more about SwiftUI, you can check out the [official SwiftUI documentation](https://developer.apple.com/documentation/swiftui). Apple also provides a [great tutorial](https://developer.apple.com/tutorials/swiftui) to get started with SwiftUI. Now let's start building the GVCourse app!
 
@@ -932,5 +926,3 @@ List {
     }
 }
 ```
-
-That is the overall instruction for implementing the GVCourse app using SwiftUI. You can check out the full source code [here](https://github.com/minhtran241/gvcourses). I hope you find this tutorial helpful. If you have any questions, please feel free to contact me at [my email](mailto:tranmq@mail.gvsu.edu).
