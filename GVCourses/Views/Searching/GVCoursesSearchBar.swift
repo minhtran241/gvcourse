@@ -61,8 +61,12 @@ struct GVCoursesSearchBar: View {
     }
 }
 
-struct SearchBar_Previews: PreviewProvider {
-    static var previews: some View {
-        GVCoursesSearchBar(text: .constant(""))
-    }
+//struct SearchBar_Previews: PreviewProvider {
+//    static var previews: some View {
+//        GVCoursesSearchBar(text: .constant(""))
+//    }
+//}
+
+#Preview {
+    GVCoursesSearchBar(text: .constant(""))
 }

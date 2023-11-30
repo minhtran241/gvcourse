@@ -37,5 +37,5 @@ struct NewsCardView: View {
 }
 
 //#Preview {
-//    NewsCardView(news: MockData.sampleNews)
+//    NewsCardView()
 //}
