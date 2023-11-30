@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/swiftui_icon.png" alt="SwiftUI">
+</p>
+
 Now that your environment is set up, let's dive into building the GVCourse app. The following sections will guide you through the process with code snippets, explanations, and visual aids.
 
 # Setting Up the Project
@@ -39,7 +43,11 @@ struct CourseRowView: View {
 
 As you can see in the code snippet above, we use HStack to arrange the course name and course title in a horizontal line. Here is the result:
 
-![CourseRowView](https://github.com/minhtran241/gvcourses/blob/main/screenshots/course_row_view.png)
+<!-- ![CourseRowView](https://github.com/minhtran241/gvcourses/blob/main/screenshots/course_row_view.png) -->
+
+<p align="center">
+  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/course_row_view.png" alt="CourseRowView">
+</p>
 
 ### Create view for a list of objects
 
@@ -127,7 +135,11 @@ struct CourseDetailsView: View {
 
 Here is the result:
 
-![CourseDetailsView](https://github.com/minhtran241/gvcourses/blob/main/screenshots/course_details_view.png)
+<p align="center">
+  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/course_details_view.png" alt="CourseDetailsView" width="450" height="750">
+</p>
+
+<!-- ![CourseDetailsView](https://github.com/minhtran241/gvcourses/blob/main/screenshots/course_details_view.png) -->
 
 ### Custom view components (subviews)
 
@@ -165,7 +177,11 @@ struct CustomTextBox: View {
 
 With just a few lines of code, we have created a beautiful custom view. Here is the result:
 
-![CustomTextBox](https://github.com/minhtran241/gvcourses/blob/main/screenshots/custom_textbox_view.png)
+<p align="center">
+  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/custom_textbox_view.png" alt="CustomTextBox" width="450" height="380">
+</p>
+
+<!-- ![CustomTextBox](https://github.com/minhtran241/gvcourses/blob/main/screenshots/custom_textbox_view.png) -->
 
 That's it, we have finished building the views for Course component. All the code for views is located in the [Views](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Views) folder. Now, let's explore how to build the model for the Course component.
 
@@ -545,7 +561,11 @@ Simmilarly, we can use the *AuthManager* class to handle the authentication in t
 
 With just a few lines of code, we have created a beautiful sign in view. Here is the result:
 
-![SignInView](https://github.com/minhtran241/gvcourses/blob/main/screenshots/signin.png)
+<p align="center">
+  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/signin.png" alt="SignInView" width="350" height="650">
+</p>
+
+<!-- ![SignInView](https://github.com/minhtran241/gvcourses/blob/main/screenshots/signin.png) -->
 
 That is our authenticaion implementation. Now, let's explore how to navigate between views.
 
@@ -689,7 +709,11 @@ struct GVCoursesApp: App {
 
 And here is the result of our beautiful custom tab bar:
 
-![GVCoursesTabView](https://github.com/minhtran241/gvcourses/blob/main/screenshots/tabbar.png)
+<p align="center">
+  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/tabbar.png" alt="GVCoursesTabView">
+</p>
+
+<!-- ![GVCoursesTabView](https://github.com/minhtran241/gvcourses/blob/main/screenshots/tabbar.png) -->
 
 That's it, we have finished implementing the navigation between views! Now let's explore the search functionality.
 

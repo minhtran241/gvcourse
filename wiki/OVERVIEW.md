@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/swiftui_icon.png" alt="SwiftUI">
+</p>
+
 Welcome to the SwiftUI tutorial! In this guide, we'll dive into the world of SwiftUI, Apple's modern UI framework, as we embark on the journey to build a comprehensive application—GVCourse. This app will serve as a centralized hub for exploring all the courses and information offered by Grand Valley State University. SwiftUI's declarative syntax empowers developers to craft sophisticated and visually appealing user interfaces with significantly less boilerplate code, fostering a more user-friendly and efficient approach to UI creation. This tutorial will provide hands-on experience with SwiftUI's cross-platform capabilities and native integration. Throughout the tutorial, we'll leverage SwiftUI's powerful features such as declarative UI, data binding, and seamless integration to bring the GVCourse app to life. Screenshots and video clips will be seamlessly integrated to enhance your understanding of the app's functionality, making this tutorial an immersive learning experience.
 
 # Introducing GVCourse: A Comprehensive Platform for GVSU Course Information and Announcements
@@ -46,7 +50,10 @@ Courses List | Course Details
 
 # Settings
 
-![Settings](https://github.com/minhtran241/gvcourses/blob/main/screenshots/settings.png)
+<!-- ![Settings](https://github.com/minhtran241/gvcourses/blob/main/screenshots/settings.png) -->
+<p align="center">
+  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/settings.png" alt="Settings">
+</p>
 
 **Demo Video:**
 [Link to Demo Video]

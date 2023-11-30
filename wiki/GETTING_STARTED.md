@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/swiftui_icon.png" alt="SwiftUI">
+</p>
+
 Before we begin building our GVCourse app, let's ensure your development environment is set up correctly.
 
 # Software Requirements
@@ -6,9 +10,31 @@ Before we begin building our GVCourse app, let's ensure your development environ
 
 SwiftUI requires macOS 10.15 Catalina or later. To check your macOS version, click the Apple icon in the top left corner of your screen and select **About This Mac**.
 
+<p align="center">
+  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/catalina.png" alt="Catalina">
+</p>
+
 ## Xcode
 
 Install the latest version of Xcode from the [Mac App Store](https://apps.apple.com/us/app/xcode/id497799835?mt=12).
+
+<p align="center">
+  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/xcode_icon.png" alt="Xcode">
+</p>
+
+## SF Symbols
+
+SF Symbols is a set of over 3,100 symbols that you can use in your app. To install SF Symbols, open Xcode and select **File** > **Swift Packages** > **Add Package Dependency**. In the search bar, type *"SF Symbols"* and click **Next**. Select the latest version and click **Next**. Finally, click **Finish**.
+
+<p align="center">
+  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/sf_icon.png" alt="SFSymbols">
+</p>
+
+In this tutorial, we will use SF Symbols to display icons in our app. For example, we will use the following code snippet to display a user icon:
+
+```swift
+Image(systemName: "person.circle")
+```
 
 # Basic Knowledge of Swift
 
