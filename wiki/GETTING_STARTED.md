@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/swiftui_icon.png" alt="SwiftUI">
-</p>
-
 Before we begin building our GVCourse app, let's ensure your development environment is set up correctly.
 
 # Software Requirements

@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/swiftui_icon.png" alt="SwiftUI">
-</p>
-
 Now that your environment is set up, let's dive into building the GVCourse app. The following sections will guide you through the process with code snippets, explanations, and visual aids.
 
 # Setting Up the Project
