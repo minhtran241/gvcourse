@@ -1,10 +1,10 @@
 <div align="center">
-  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/swiftui.png" alt="Swiftui">
-</div>
+  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/swiftui.png" alt="Swiftui" width="150" height="150">
 
-[![GitHub license](https://img.shields.io/github/license/minhtran241/gvcourses)](https://github.com/minhtran241/gvcourses/LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/minhtran241/gvcourses)](https://github.com/minhtran241/gvcourses/issues)
-[![GitHub stars](https://img.shields.io/github/stars/minhtran241/gvcourses)](https://github.com/minhtran241/gvcourses/stargazers)
+  [![GitHub license](https://img.shields.io/github/license/minhtran241/gvcourses)](https://github.com/minhtran241/gvcourses/LICENSE)
+  [![GitHub issues](https://img.shields.io/github/issues/minhtran241/gvcourses)](https://github.com/minhtran241/gvcourses/issues)
+  [![GitHub stars](https://img.shields.io/github/stars/minhtran241/gvcourses)](https://github.com/minhtran241/gvcourses/stargazers)
+</div>
 
 # GVCourse App
 
@@ -45,7 +45,7 @@ Courses List | Course Details
 ## Settings
 
 <div align="center">
-  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/settings.png" alt="Settings">
+  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/settings.png" alt="Settings" width="470" height="870">
 </div>
 
 # License
