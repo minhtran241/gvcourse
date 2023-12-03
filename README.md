@@ -1,12 +1,3 @@
-theme: jekyll-theme-minimal
-<div align="center">
-  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/swiftui.png" alt="Swiftui" width="150" height="150">
-
-  [![GitHub license](https://img.shields.io/github/license/minhtran241/gvcourses)](https://github.com/minhtran241/gvcourses/LICENSE)
-  [![GitHub issues](https://img.shields.io/github/issues/minhtran241/gvcourses)](https://github.com/minhtran241/gvcourses/issues)
-  [![GitHub stars](https://img.shields.io/github/stars/minhtran241/gvcourses)](https://github.com/minhtran241/gvcourses/stargazers)
-</div>
-
 # GVCourse App
 
 Welcome to GVCourse, your go-to destination for exploring the diverse range of courses and valuable information offered by Grand Valley State University. The GVCourse application aims to simplify the process of accessing and staying informed about both new and existing courses, providing users with a centralized platform.
@@ -45,9 +36,7 @@ Courses List | Course Details
 
 ## Settings
 
-<div align="center">
-  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/settings.png" alt="Settings" width="470" height="870">
-</div>
+![Settings](https://github.com/minhtran241/gvcourses/blob/main/screenshots/settings.png)
 
 # License
 
