@@ -1,69 +1,97 @@
-<div align="center">
-  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/swiftui.png" alt="Swiftui" width="150" height="150">
+<p align="center">
+  <a href="https://power-of-words.github.io/PowerOfWordsProject/">
+    <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/swiftui.png" alt="Swiftui" width="150" height="150">
+  </a>
 
-  [![GitHub license](https://img.shields.io/github/license/minhtran241/gvcourses)](https://github.com/minhtran241/gvcourses/LICENSE)
-  [![GitHub issues](https://img.shields.io/github/issues/minhtran241/gvcourses)](https://github.com/minhtran241/gvcourses/issues)
-  [![GitHub stars](https://img.shields.io/github/stars/minhtran241/gvcourses)](https://github.com/minhtran241/gvcourses/stargazers)
-</div>
+  <h3 align="center">Power of Words</h3>
+  <p align="center">
+    Your go-to destination for exploring the diverse range of courses and valuable information offered by GVSU made with SwiftUI
+    <br>
+    <br>
+   <img src="https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white" alt="ios" />
+   <img src="https://img.shields.io/badge/Swift-FA7343?style=for-the-badge&logo=swift&logoColor=white" alt="Swift" />
+   <img src="https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black" alt="Firebase" />
+ </p>
 
-# GVCourse App
+  <p align="center">
+  <br>
+    <a href="https://github.com/minhtran241/gvcourse/issues/new">Report bug</a>
+    ·
+    <a href="https://github.com/minhtran241/gvcourse/issues/new">Request feature</a>
+  </p>
+
+## Table of contents
+
+- [Description](#description)
+- [Quick start](#quick-start)
+- [What's included](#whats-included)
+- [Bugs and feature requests](#bugs-and-feature-requests)
+- [Contributing](#contributing)
+- [Creators](#creators)
+- [Thanks](#thanks)
+- [Copyright and license](#copyright-and-license)
+
+## Description
 
 Welcome to GVCourse, your go-to destination for exploring the diverse range of courses and valuable information offered by Grand Valley State University. The GVCourse application aims to simplify the process of accessing and staying informed about both new and existing courses, providing users with a centralized platform.
 
-## Explore the Course Catalog with Ease
+## Quick start
 
-Discover the extensive course catalog offered by Grand Valley State University with an intuitive search and filtering feature. Effortlessly find relevant information in real-time, and dive deeper into course details by simply tapping on the course cards.
+This is a iOS application built with SwiftUI. To get started, you can clone this repo and run it on your local machine. The [Getting Started guide](https://github.com/minhtran241/gvcourse/wiki/2.-Getting-Started) walks you through the necessary steps to run this project on your local machine.
 
-## Stay Updated with Course News and Announcements
+## What's included
 
-Stay in the loop with the latest course-related updates through the dynamic news and announcements section. From new courses to important announcements, this section ensures you are always up-to-date. Engage with full articles by tapping on the relevant cards, and explore eye-catching posters for upcoming courses.
+- [x] User can sign up and login
+- [x] User can view all courses and news
+- [x] User can view course and news details
+- [x] User can search for courses
+- [x] User can remove their account
 
-## Seamless Authentication Process
+### Firebase
 
-Experience hassle-free account creation and login with third-party authentication services, including Google. The authentication feature adds a personalized touch to your GVCourse journey, ensuring a smooth and secure user experience.
+This repo is using Firebase. We use Cloud Firestore and Cloud Storage to handle CRUD operations to store user information, courses, and news. We also use Firebase Authentication to handle user authentication (Google Sign In and Email/Password Sign In).
 
-# GVCourse App Screenshots
+## Screenshot
 
-## Authentication
+### Authentication
 
 Sign In | Sign Up
 --- | ---
 ![Sign In](https://github.com/minhtran241/gvcourses/blob/main/screenshots/signin.png) | ![Sign Up](https://github.com/minhtran241/gvcourses/blob/main/screenshots/signup.png)
 
-## Course News and Announcements
+### Course News and Announcements
 
 News List | News Details
 --- | ---
 ![News List](https://github.com/minhtran241/gvcourses/blob/main/screenshots/news_list.png) | ![News Details](https://github.com/minhtran241/gvcourses/blob/main/screenshots/news_details.png)
 
-## Course Catalog
+### Course Catalog
 
 Courses List | Course Details
 --- | ---
 ![Courses List](https://github.com/minhtran241/gvcourses/blob/main/screenshots/courses_list.png) | ![Course Details](https://github.com/minhtran241/gvcourses/blob/main/screenshots/course_details.png)
 
-## Settings
+### Settings
 
 <div align="center">
   <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/settings.png" alt="Settings" width="470" height="870">
 </div>
 
-# License
+## Bugs and feature requests
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/minhtran241/gvcourses/blob/main/LICENSE) file for details.
+Have a bug or a feature request? Please first read the [issue guidelines]() and search for existing and closed issues. If your problem or idea is not addressed yet, [please open a new issue](https://github.com/minhtran241/gvcourse/issues/new).
 
-# Acknowledgments
+## Contributing
 
-- [SwiftUI Tutorials](https://developer.apple.com/tutorials/swiftui)
-- [SwiftUI Documentation](https://developer.apple.com/documentation/swiftui)
-- [SwiftUI by Example](https://www.hackingwithswift.com/quick-start/swiftui)
-- [Building lists and navigation in SwiftUI](https://developer.apple.com/tutorials/swiftui/building-lists-and-navigation)
-- [Custom Tab Bar in SwiftUI](https://medium.com/geekculture/custom-tabbar-in-swiftui-4d239410ee73)
-- [SwiftUI folder structure as RN developer](https://medium.com/dooboolab/swiftui-folder-structures-as-rn-developer-f1ba12be9a05)
-- [SwiftUI Google Sign In](https://paulallies.medium.com/google-sign-in-swiftui-2909e01ea4ed)
-- [SearchBar in SwiftUI](https://www.hackingwithswift.com/quick-start/swiftui/how-to-add-a-search-bar-to-filter-your-data)
-- [SwiftUI vs UIKit](https://www.linkedin.com/pulse/swiftui-vs-uikit-evaluating-battle-ios-development-theatechh)
+Please read through our [contributing guidelines](). Included are directions for opening issues, coding standards, and notes on development.
 
-# Author
+## Creators
 
-Minh Tran - [minhtran241](mailto:tranmq@mail.gvsu.edu)
+**Minh Tran**
+
+- <https://github.com/minhtran241>
+
+## Copyright and license
+
+Code and documentation copyright 2023 by creator.<br>  <br>[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<br><br>

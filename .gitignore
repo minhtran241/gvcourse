@@ -74,3 +74,5 @@ fastlane/test_output
 # config files
 # environment variables
 GVCourses/Configs/Config.xcconfig
+
+.vscode
