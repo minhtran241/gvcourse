@@ -23,6 +23,7 @@
 ## Table of contents
 
 - [Description](#description)
+- [Wiki](#wiki)
 - [Quick start](#quick-start)
 - [What's included](#whats-included)
 - [Bugs and feature requests](#bugs-and-feature-requests)
@@ -33,6 +34,10 @@
 ## Description
 
 Welcome to GVCourse, your go-to destination for exploring the diverse range of courses and valuable information offered by Grand Valley State University. The GVCourse application aims to simplify the process of accessing and staying informed about both new and existing courses, providing users with a centralized platform.
+
+## Wiki
+
+You can find more information about this project in the [wiki](https://github.com/minhtran241/gvcourse/wiki).
 
 ## Quick start
 
