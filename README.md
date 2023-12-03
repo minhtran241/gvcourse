@@ -27,8 +27,7 @@
 - [What's included](#whats-included)
 - [Bugs and feature requests](#bugs-and-feature-requests)
 - [Contributing](#contributing)
-- [Creators](#creators)
-- [Thanks](#thanks)
+- [Creator](#creator)
 - [Copyright and license](#copyright-and-license)
 
 ## Description
@@ -85,7 +84,7 @@ Have a bug or a feature request? Please first read the [issue guidelines]() and 
 
 Please read through our [contributing guidelines](). Included are directions for opening issues, coding standards, and notes on development.
 
-## Creators
+## Creator
 
 **Minh Tran**
 
