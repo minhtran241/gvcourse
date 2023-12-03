@@ -1,3 +1,4 @@
+theme: jekyll-theme-minimal
 <div align="center">
   <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/swiftui.png" alt="Swiftui" width="150" height="150">
 
