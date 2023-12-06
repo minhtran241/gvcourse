@@ -7,7 +7,7 @@ Before we begin building our GVCourse app, let's ensure your development environ
 SwiftUI requires macOS 10.15 Catalina or later. To check your macOS version, click the Apple icon in the top left corner of your screen and select **About This Mac**.
 
 <p align="center">
-  <img src="screenshots/catalina.png" alt="Catalina" width="200" height="200">
+  <img src="./screenshots/catalina.png" alt="Catalina" width="200" height="200">
 </p>
 
 ## Xcode and Simulator
