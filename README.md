@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/swiftui.png" alt="SwiftUI" width="200" height="200"/>
+  <img src="./screenshots/swiftui.png" alt="SwiftUI" width="200" height="200"/>
 </p>
 
 Welcome to the SwiftUI tutorial! In this guide, we'll dive into the world of SwiftUI, Apple's modern UI framework, as we embark on the journey to build a comprehensive application—GVCourse.
@@ -25,19 +25,19 @@ Welcome to the SwiftUI tutorial! In this guide, we'll dive into the world of Swi
     - [SF Symbols](#sf-symbols)
 - [Step-by-Step Instructions](#step-by-step-instructions)
   - [Main components](#main-components)
-   	- [Views](#views)
-   	  - [View protocol](#view-protocol)
-   	  - [HSack, VStack and ZStack](#hsack-vstack-and-zstack)
-   	- [Modifiers](#modifiers)
-   	- [Data flow](#data-flow)
-   	  - [Property wrappers](#property-wrappers)
+    - [Views](#views)
+      - [View protocol](#view-protocol)
+      - [HSack, VStack and ZStack](#hsack-vstack-and-zstack)
+    - [Modifiers](#modifiers)
+    - [Data flow](#data-flow)
+      - [Property wrappers](#property-wrappers)
   - [Setting Up the Project](#setting-up-the-project)
   - [Building the Views](#building-the-views)
-   	- [Create views](#create-views)
-   	  - [Create view for a single object showing in a list](#create-view-for-a-single-object-showing-in-a-list)
-   	  - [Create view for a list of objects](#create-view-for-a-list-of-objects)
-   	  - [Create view for a single object showing in a detail view](#create-view-for-a-single-object-showing-in-a-detail-view)
-   	  - [Custom view components (subviews)](#custom-view-components-subviews)
+    - [Create views](#create-views)
+      - [Create view for a single object showing in a list](#create-view-for-a-single-object-showing-in-a-list)
+      - [Create view for a list of objects](#create-view-for-a-list-of-objects)
+      - [Create view for a single object showing in a detail view](#create-view-for-a-single-object-showing-in-a-detail-view)
+      - [Custom view components (subviews)](#custom-view-components-subviews)
   - [Building the Models](#building-the-models)
   - [Interacting with Database](#interacting-with-database)
   - [Implementing Authentication](#implementing-authentication)
@@ -84,25 +84,25 @@ The authentication feature allows users to create accounts and log in using thir
 
 Sign In | Sign Up
 --- | ---
-![Sign In](https://github.com/minhtran241/gvcourses/blob/main/screenshots/signin.png) | ![Sign Up](https://github.com/minhtran241/gvcourses/blob/main/screenshots/signup.png)
+![Sign In](./screenshots/signin.png) | ![Sign Up](./screenshots/signup.png)
 
 ### Course News and Announcements
 
 News List | News Details
 --- | ---
-![News List](https://github.com/minhtran241/gvcourses/blob/main/screenshots/news_list.png) | ![News Details](https://github.com/minhtran241/gvcourses/blob/main/screenshots/news_details.png)
+![News List](./screenshots/news_list.png) | ![News Details](./screenshots/news_details.png)
 
 ### Course Catalog
 
 Courses List | Course Details
 --- | ---
-![Courses List](https://github.com/minhtran241/gvcourses/blob/main/screenshots/courses_list.png) | ![Course Details](https://github.com/minhtran241/gvcourses/blob/main/screenshots/course_details.png)
+![Courses List](./screenshots/courses_list.png) | ![Course Details](./screenshots/course_details.png)
 
 ### Settings
 
-<!-- ![Settings](https://github.com/minhtran241/gvcourses/blob/main/screenshots/settings.png) -->
+<!-- ![Settings](./screenshots/settings.png) -->
 <p align="center">
-  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/settings.png" alt="Settings">
+  <img src="./screenshots/settings.png" alt="Settings">
 </p>
 
 **Demo Video:**
@@ -125,7 +125,7 @@ Before we begin building our GVCourse app, let's ensure your development environ
 SwiftUI requires macOS 10.15 Catalina or later. To check your macOS version, click the Apple icon in the top left corner of your screen and select **About This Mac**.
 
 <p align="center">
-  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/catalina.png" alt="Catalina" width="200" height="200">
+  <img src="./screenshots/catalina.png" alt="Catalina" width="200" height="200">
 </p>
 
 ### Xcode and Simulator
@@ -135,8 +135,8 @@ Install the latest version of Xcode from the [Mac App Store](https://apps.apple.
 Simulator is a tool that allows you to run your app on a virtual device. To open Simulator, open Xcode and select **Xcode** > **Open Developer Tool** > **Simulator**.
 
 <p align="center">
-  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/xcode_icon.png" alt="Xcode" width="200" height="200">
-  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/simulator.png" alt="Simulator" width="200" height="200">
+  <img src="./screenshots/xcode_icon.png" alt="Xcode" width="200" height="200">
+  <img src="./screenshots/simulator.png" alt="Simulator" width="200" height="200">
 </p>
 
 ### SF Symbols
@@ -144,7 +144,7 @@ Simulator is a tool that allows you to run your app on a virtual device. To open
 SF Symbols is a set of over 3,100 symbols that you can use in your app. To install SF Symbols, open Xcode and select **File** > **Swift Packages** > **Add Package Dependency**. In the search bar, type *"SF Symbols"* and click **Next**. Select the latest version and click **Next**. Finally, click **Finish**.
 
 <p align="center">
-  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/sf_icon.png" alt="SFSymbols" width="200" height="200">
+  <img src="./screenshots/sf_icon.png" alt="SFSymbols" width="200" height="200">
 </p>
 
 In this tutorial, we will use SF Symbols to display icons in our app. For example, we will use the following code snippet to display a user icon:
@@ -267,7 +267,7 @@ Text(title).foregroundStyle(.gray).font(.title3)
 
 In order to know what modifiers are available for a view, we can use Xcode's code completion feature. For example, if we want to know what modifiers are available for Text view, we can type *"Text."* and Xcode will show a list of available modifiers:
 
-![Styling in SwiftUI](https://github.com/minhtran241/gvcourses/blob/main/screenshots/styling.png)
+![Styling in SwiftUI](./screenshots/styling.png)
 
 ### Data flow
 
@@ -366,10 +366,10 @@ struct CourseRowView: View {
 
 As you can see in the code snippet above, we use HStack to arrange the course name and course title in a horizontal line. Here is the result:
 
-<!-- ![CourseRowView](https://github.com/minhtran241/gvcourses/blob/main/screenshots/course_row_view.png) -->
+<!-- ![CourseRowView](./screenshots/course_row_view.png) -->
 
 <p align="center">
-  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/course_row_view.png" alt="CourseRowView">
+  <img src="./screenshots/course_row_view.png" alt="CourseRowView">
 </p>
 
 ### Create view for a list of objects
@@ -459,10 +459,10 @@ struct CourseDetailsView: View {
 Here is the result:
 
 <p align="center">
-  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/course_details_view.png" alt="CourseDetailsView" width="450" height="750">
+  <img src="./screenshots/course_details_view.png" alt="CourseDetailsView" width="450" height="750">
 </p>
 
-<!-- ![CourseDetailsView](https://github.com/minhtran241/gvcourses/blob/main/screenshots/course_details_view.png) -->
+<!-- ![CourseDetailsView](./screenshots/course_details_view.png) -->
 
 ### Custom view components (subviews)
 
@@ -501,10 +501,10 @@ struct CustomTextBox: View {
 With just a few lines of code, we have created a beautiful custom view. Here is the result:
 
 <p align="center">
-  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/custom_textbox_view.png" alt="CustomTextBox" width="450" height="380">
+  <img src="./screenshots/custom_textbox_view.png" alt="CustomTextBox" width="450" height="380">
 </p>
 
-<!-- ![CustomTextBox](https://github.com/minhtran241/gvcourses/blob/main/screenshots/custom_textbox_view.png) -->
+<!-- ![CustomTextBox](./screenshots/custom_textbox_view.png) -->
 
 That's it, we have finished building the views for Course component. All the code for views is located in the [Views](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Views) folder. Now, let's explore how to build the model for the Course component.
 
@@ -768,10 +768,10 @@ Simmilarly, we can use the *AuthManager* class to handle the authentication in t
 With just a few lines of code, we have created a beautiful sign in view. Here is the result:
 
 <p align="center">
-  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/signin.png" alt="SignInView" width="350" height="650">
+  <img src="./screenshots/signin.png" alt="SignInView" width="350" height="650">
 </p>
 
-<!-- ![SignInView](https://github.com/minhtran241/gvcourses/blob/main/screenshots/signin.png) -->
+<!-- ![SignInView](./screenshots/signin.png) -->
 
 That is our authenticaion implementation. Now, let's explore how to navigate between views.
 
@@ -916,10 +916,10 @@ struct GVCoursesApp: App {
 And here is the result of our beautiful custom tab bar:
 
 <p align="center">
-  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/tabbar.png" alt="GVCoursesTabView">
+  <img src="./screenshots/tabbar.png" alt="GVCoursesTabView">
 </p>
 
-<!-- ![GVCoursesTabView](https://github.com/minhtran241/gvcourses/blob/main/screenshots/tabbar.png) -->
+<!-- ![GVCoursesTabView](./screenshots/tabbar.png) -->
 
 That's it, we have finished implementing the navigation between views! Now let's explore the search functionality.
 
