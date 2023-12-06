@@ -134,7 +134,7 @@ As you can see in the code snippet above, we use VStack to group two Text views 
 
 We can use state to store the state of a view. The concept of state in SwiftUI is quite similar to the concept of state in React. For example, we can use *@State* to store the state of a text field:
 
-```Swift
+```swift
 @State var name: String = ""
 ```
 
