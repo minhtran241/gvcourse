@@ -1,18 +1,14 @@
 Now that your environment is set up, let's take a look at SwiftUI's basic concepts that I found essential in learning SwiftUI. The following sections will guide you through the process with code snippets, explanations, and visual aids. We will also use these concepts to build the GVCourse app. Let's get started!
 
-# What is SwiftUI?
-
-SwiftUI is a declarative UI framework built with the Swift programming language. While SwiftUI is a relatively new framework, it is built on top of Swift, which has been around for a while. If you are new to Swift, consider going through the [official Swift tutorials](https://developer.apple.com/tutorials/swiftui) to get familiar with the basics.
-
-## Main components
+# Main components
 
 There are three main components in SwiftUI:  **Views**, **Modifiers** and **Data flow**. Let's explore each component in more detail.
 
-### Views
+## Views
 
 Views layout in SwiftUI is based on a tree of view components. Each view component is responsible for displaying a part of the UI.
 
-#### View protocol
+## View protocol
 
 Views are the building blocks of your app's UI. In SwiftUI, a view is a struct that conforms to the View protocol. For example, the following code snippet defines a view that displays a text:
 
@@ -27,7 +23,7 @@ struct CourseRowView: View {
 }
 ```
 
-#### HSack, VStack and ZStack
+## HSack, VStack and ZStack
 
 One of the most common concepts in SwiftUI is HStack, VStack and ZStack. So let's explore them in more detail.
 
@@ -98,7 +94,7 @@ HStack {
 }
 ```
 
-### Modifiers
+## Modifiers
 
 In SwiftUI, we can use modifiers to style the views. For example, we can use *foregroundStyle* to change the text color:
 
@@ -116,7 +112,7 @@ In order to know what modifiers are available for a view, we can use Xcode's cod
 
 ![Styling in SwiftUI](https://github.com/minhtran241/gvcourses/blob/main/screenshots/styling.png)
 
-### Data flow
+## Data flow
 
 The data flow in SwiftUI is unidirectional, which means the data flows from the parent view to the child view. The parent view is responsible for passing the data to the child view. For example, the following code snippet defines a view tree with a root view and two child views:
 
@@ -142,7 +138,7 @@ We can use state to store the state of a view. The concept of state in SwiftUI i
 @State var name: String = ""
 ```
 
-#### Property wrappers
+## Property wrappers
 
 In SwiftUI, we can use property wrappers to store the state of a view. There are many property wrappers available in SwiftUI, in this tutorial, we will use *@State*, *@Binding*, *@EnvironmentObject* and *@Published* and they are also the most essential property wrappers in SwiftUI. Let's explore when to use each property wrapper:
 
@@ -184,9 +180,9 @@ That's it for all the basic concepts in SwiftUI that we will use in this tutoria
 
 The views are responsible for displaying the app's content and handling user interactions. In this section, we will explore how to build the views for GVCourse. We will start with the Course component, which is responsible for displaying the course catalog.
 
-## Create views
+# Create views
 
-### Create view for a single object showing in a list
+## Create view for a single object showing in a list
 
 Create a new SwiftUI file named [CourseRowView.swift](https://github.com/minhtran241/gvcourses/blob/main/GVCourses/Views/Courses/CourseRowView.swift) and add the following code, which defines the View for a single course row, we will use struct to define the view in SwiftUI because struct is immutable and it is easy to maintain the state of the view.
 
@@ -219,7 +215,7 @@ As you can see in the code snippet above, we use HStack to arrange the course na
   <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/course_row_view.png" alt="CourseRowView">
 </p>
 
-### Create view for a list of objects
+## Create view for a list of objects
 
 Create a new SwiftUI file named [CourseListView.swift](https://github.com/minhtran241/gvcourses/blob/main/GVCourses/Views/Courses/CourseListView.swift) and add the following code, which defines the View for the course list.
 
@@ -238,7 +234,7 @@ struct CoursesListView: View {
 }
 ```
 
-### Create view for a single object showing in a detail view
+## Create view for a single object showing in a detail view
 
 Create a new SwiftUI file named "CourseDetailsView" and add the following code. This view will display the properties of a course. We will use ScrollView to make the view scrollable.
 
@@ -311,7 +307,7 @@ Here is the result:
 
 <!-- ![CourseDetailsView](https://github.com/minhtran241/gvcourses/blob/main/screenshots/course_details_view.png) -->
 
-### Custom view components (subviews)
+## Custom view components (subviews)
 
 You may notice that we use a custom view called CustomTextBox in the code snippet above. Yes, we can create our own custom view in SwiftUI, all the custom views are defined in the [Custom](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Views/Custom) folder. Let's create a new SwiftUI file named [CustomTextBox.swift](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Views/Custom/CustomTextBox) and add the following code:
 
@@ -414,7 +410,7 @@ Basically, we define a Course struct with all the properties we need, and we def
 
 In this section, we will explore how to interact with the database. We will use Firebase Firestore as the database for GVCourse. If you are not familiar with Firebase Firestore, you can check out the [official documentation](https://firebase.google.com/docs/firestore) to learn more about it. In SwiftUI, the way to connect with Firebase Firestore is the same as using normal Swift, so you can follow the [official documentation](https://firebase.google.com/docs/firestore/quickstart) to set up Firebase Firestore.
 
-## Implementing stores
+# Implementing stores
 
 The [Stores](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Stores) folder contains *ObservableObject* that can also be used globally as an *EnvironmentObject*. This is where we will implement the logic to fetch data from the database. First, let's create a new folder named "Stores" and a new Swift file named [CourseStore.swift](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Stores/CourseStore.swift) inside the [Stores](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Stores) folder. This class will provide methods to fetch data from the database. Add the following code to the file:
 
@@ -541,124 +537,7 @@ That's it, we have finished implementing the *CourseStore* class. You can apply 
 
 In this section, we will explore how to implement authentication functionalities in GVCourse. We will use Firebase Authentication to implement authentication. If you are not familiar with Firebase Authentication, you can check out the [official documentation](https://firebase.google.com/docs/auth) to learn more about it.
 
-First, let's create a new folder named [Managers](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Managers) and a new Swift file named [AuthManager.swift](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Managers/AuthManager.swift) inside the [Managers](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Managers) folder. This class will provide methods to handle authentication. Add the following code to the file:
-
-```swift
-struct AuthManager {
-    static let shared = AuthManager()
-    private let auth = Auth.auth()
-    
-    private init() {}
-    
-    func signInWithGoogle(presenting: UIViewController,
-                          completion: @escaping (Error?) -> Void) {
-        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
-        // Create Google Sign In configuration object.
-        let config = GIDConfiguration(clientID: clientID)
-        
-        GIDSignIn.sharedInstance.configuration = config
-        
-        // Start the sign in flow!
-        GIDSignIn.sharedInstance.signIn(withPresenting: presenting) {authentication, error in
-            
-            if let error = error {
-                completion(error)
-                return
-            }
-            
-            guard let user = authentication?.user, let idToken = user.idToken?.tokenString else { return }
-            
-            let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: user.accessToken.tokenString)
-            
-            self.auth.signIn(with: credential) { result, error in
-                guard error == nil else {
-                    completion(error)
-                    return
-                }
-                print("SIGN IN")
-                UserDefaults.standard.set(true, forKey: "signIn") // When this change to true, it will go to the home screen
-            }
-        }
-    }
-    
-    func signInWithEmail(email: String, password: String, completion: @escaping (Error?) -> Void) {
-        if !validateSignIn(email: email, password: password) {
-            let validationError = NSError(domain: "GVCourses", code: 1, userInfo: [NSLocalizedDescriptionKey: "Invalid email or password"])
-            completion(validationError)
-            return
-        }
-        
-        self.auth.signIn(withEmail: email, password: password) { (result, error) in
-            guard result != nil, error == nil else {
-                completion(error)
-                return
-            }
-            print("SIGN IN")
-            UserDefaults.standard.set(true, forKey: "signIn") // When this change to true, it will go to the home screen
-        }
-    }
-    
-    func signUpWithEmail(email: String, password: String, password2: String, completion: @escaping (Error?) -> Void) {
-        // Check if email and password meet your validation criteria here if needed
-        if !validateSignUp(email: email, password: password, password2: password2) {
-            // You may want to return an error or call the completion handler with an error here.
-            let validationError = NSError(domain: "GVCourses", code: 1, userInfo: [NSLocalizedDescriptionKey: "Invalid email or password"])
-            completion(validationError)
-            return
-        }
-        
-        self.auth.createUser(withEmail: email, password: password) { (result, error) in
-            guard result != nil, error == nil else {
-                // Registration failed; call the completion handler with the error
-                completion(error)
-                return
-            }
-            
-            print("SIGN UP")
-            // You can also automatically sign in the user after successful registration if needed.
-            self.signInWithEmail(email: email, password: password) { (signInError) in
-                if let error = signInError {
-                    // Handle the sign-in error if needed
-                    completion(error)
-                    return
-                }
-            }
-        }
-    }
-    
-    func signOut(completion: @escaping (Error) -> Void) {
-        GIDSignIn.sharedInstance.signOut()
-        do {
-            try self.auth.signOut()
-            print("SIGN OUT")
-            UserDefaults.standard.set(false, forKey: "signIn") // When this change to false, it will go to the sign in screen
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
-            let signingOutError = NSError(domain: "GVCourses", code: 1, userInfo: [NSLocalizedDescriptionKey: "Error signing out: \(signOutError.localizedDescription)"])
-            completion(signingOutError)
-        }
-    }
-    
-    func validateSignUp(email: String, password: String, password2: String) -> Bool {
-        guard !email.trimmingCharacters(in: .whitespaces).isEmpty,
-              !password.trimmingCharacters(in: .whitespaces).isEmpty,
-              !password2.trimmingCharacters(in: .whitespaces).isEmpty,
-              password.count >= 6, password == password2 else {
-            return false
-        }
-        return true
-    }
-    
-    func validateSignIn(email: String, password: String) -> Bool {
-        guard !email.trimmingCharacters(in: .whitespaces).isEmpty,
-              !password.trimmingCharacters(in: .whitespaces).isEmpty,
-              password.count >= 6 else {
-            return false
-        }
-        return true
-    }
-}
-```
+First, let's create a new folder named [Managers](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Managers) and a new Swift file named [AuthManager.swift](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Managers/AuthManager.swift) inside the [Managers](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Managers) folder. This class will provide methods to handle authentication. Copy and paste the content inside the [AuthManager.swift](https://github.com/minhtran241/gvcourses/tree/main/GVCourses/Managers/AuthManager.swift) into yours.
 
 I will explain the code snippet above in the following sections:
 
