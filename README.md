@@ -1,8 +1,56 @@
 <p align="center">
-  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/swiftui.png" alt="SwiftUI">
+  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/swiftui.png" alt="SwiftUI" width="200" height="200"/>
 </p>
 
 Welcome to the SwiftUI tutorial! In this guide, we'll dive into the world of SwiftUI, Apple's modern UI framework, as we embark on the journey to build a comprehensive application—GVCourse.
+
+# Table of Contents
+
+- [Overview](#overview)
+  - [What is SwiftUI?](#what-is-swiftui)
+  - [Why SwiftUI?](#why-swiftui)
+  - [GVCourse App](#gvcourse-app)
+    - [Course Catalog with Search and Filter](#course-catalog-with-search-and-filter)
+    - [Course News and Announcements](#course-news-and-announcements)
+    - [Authentication](#authentication)
+  - [GVCourse App Screenshots](#gvcourse-app-screenshots)
+    - [Authentication](#authentication-1)
+    - [Course News and Announcements](#course-news-and-announcements-1)
+    - [Course Catalog](#course-catalog-1)
+    - [Settings](#settings)
+- [Getting Started](#getting-started)
+  - [Software Requirements](#software-requirements)
+    - [macOS](#macos)
+    - [Xcode and Simulator](#xcode-and-simulator)
+    - [SF Symbols](#sf-symbols)
+- [Step-by-Step Instructions](#step-by-step-instructions)
+  - [Main components](#main-components)
+   	- [Views](#views)
+   	  - [View protocol](#view-protocol)
+   	  - [HSack, VStack and ZStack](#hsack-vstack-and-zstack)
+   	- [Modifiers](#modifiers)
+   	- [Data flow](#data-flow)
+   	  - [Property wrappers](#property-wrappers)
+  - [Setting Up the Project](#setting-up-the-project)
+  - [Building the Views](#building-the-views)
+   	- [Create views](#create-views)
+   	  - [Create view for a single object showing in a list](#create-view-for-a-single-object-showing-in-a-list)
+   	  - [Create view for a list of objects](#create-view-for-a-list-of-objects)
+   	  - [Create view for a single object showing in a detail view](#create-view-for-a-single-object-showing-in-a-detail-view)
+   	  - [Custom view components (subviews)](#custom-view-components-subviews)
+  - [Building the Models](#building-the-models)
+  - [Interacting with Database](#interacting-with-database)
+  - [Implementing Authentication](#implementing-authentication)
+  - [Navigating Between Views](#navigating-between-views)
+  - [Implementing Search Functionality](#implementing-search-functionality)
+- [See Also](#see-also)
+- [Conclusion](#conclusion)
+  - [Performance](#performance)
+  - [Third party components](#third-party-components)
+  - [Use cases](#use-cases)
+  - [Alternative approaches](#alternative-approaches)
+  - [Related platform features](#related-platform-features)
+- [License](#license)
 
 # Overview
 
@@ -969,4 +1017,4 @@ Source code can be found [here](https://github.com/minhtran241/gvcourses).
 
 # License
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/minhtran241/gvcourses/blob/main/GVCourses/LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/minhtran241/gvcourses/blob/main/LICENSE) file for details.
