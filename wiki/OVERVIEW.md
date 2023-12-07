@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/swiftui2.png" alt="SwiftUI">
+  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/swiftui2.png" alt="SwiftUI" width="800" height="530">
 </p>
 
 Welcome to the SwiftUI tutorial! In this guide, we'll dive into the world of SwiftUI, Apple's modern UI framework, as we embark on the journey to build a comprehensive application—GVCourse.
