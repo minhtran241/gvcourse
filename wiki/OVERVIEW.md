@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/swiftui.png" alt="SwiftUI">
+  <img src="https://github.com/minhtran241/gvcourses/blob/main/screenshots/swiftui2.png" alt="SwiftUI">
 </p>
 
 Welcome to the SwiftUI tutorial! In this guide, we'll dive into the world of SwiftUI, Apple's modern UI framework, as we embark on the journey to build a comprehensive application—GVCourse.
@@ -57,7 +57,7 @@ Courses List | Course Details
 
 **Demo Video:**
 
-![Demo Video](https://github.com/minhtran241/gvcourses/blob/main/screenshots/demo_vid.mp4)
+<https://github.com/minhtran241/gvcourse/assets/98200886/21a407cf-9d93-47dd-b627-b46187c47ac8>
 
 # Why GVCourse is a Great Example of a SwiftUI App?
 
