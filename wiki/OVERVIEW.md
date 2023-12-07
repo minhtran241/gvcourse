@@ -56,7 +56,8 @@ Courses List | Course Details
 </p>
 
 **Demo Video:**
-[Link to Demo Video]
+
+![Demo Video](https://github.com/minhtran241/gvcourses/blob/main/screenshots/demo_vid.mp4)
 
 # Why GVCourse is a Great Example of a SwiftUI App?
 
